@@ -2,9 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { css } from '@patternfly/react-styles';
 import styles from '@patternfly/react-styles/css/components/Accordion/accordion';
-import AccordionToggle from './AccordionToggle';
 
-export const accordionContext = React.createContext({ headingLevel: 'h3' });
+export const AccordionContext = React.createContext({ headingLevel: 'h3' });
 
 export const HeadingLevelTypes = {
   h1: 'h1',
@@ -15,15 +14,15 @@ export const HeadingLevelTypes = {
   h6: 'h6'
 };
 
-const Accordion = ({ children, className, 'aria-label': ariaLabel, ...props }) => (
-  <dl className={css(styles.accordion, className)} aria-label={ariaLabel} {...props}>
-    <accordionContext.Provider value="headingLevel">
-      <headingLevel>{children}</headingLevel>
-    </accordionContext.Provider>
-  </dl>
-);
+const Accordion = ({ children, className, headingLevel, 'aria-label': ariaLabel, ...props }) => {
+  const HeadingLevel = HeadingLevelTypes[headingLevel];
 
-Accordion.contextType = accordionContext;
+  return (
+    <dl className={css(styles.accordion, className)} aria-label={ariaLabel} {...props}>
+      <AccordionContext.Provider value={{ HeadingLevel }}>{children}</AccordionContext.Provider>
+    </dl>
+  );
+};
 
 Accordion.propTypes = {
   /** Content rendered inside the Accordion */
@@ -41,7 +40,7 @@ Accordion.propTypes = {
 Accordion.defaultProps = {
   children: null,
   className: '',
-  headingLevel: HeadingLevelTypes.h3,
+  headingLevel: 'h3',
   'aria-label': ''
 };
 
