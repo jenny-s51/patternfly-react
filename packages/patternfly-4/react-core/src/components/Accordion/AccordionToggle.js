@@ -3,11 +3,10 @@ import PropTypes from 'prop-types';
 import { css } from '@patternfly/react-styles';
 import { AngleRightIcon } from '@patternfly/react-icons';
 import styles from '@patternfly/react-styles/css/components/Accordion/accordion';
-import { AccordionContext } from '../Accordion';
+import { AccordionContext } from './Accordion';
 import { ApplicationLauncherPosition } from '../ApplicationLauncher/applicationLauncherConstants';
 
 const AccordionToggle = ({ className, id, isExpanded, children, ...props }) => (
-
   <dt>
     <AccordionContext.Consumer>
       {({ HeadingLevel }) => (
@@ -24,7 +23,6 @@ const AccordionToggle = ({ className, id, isExpanded, children, ...props }) => (
           </button>
         </HeadingLevel>
       )}
-      ;
     </AccordionContext.Consumer>
   </dt>
 );
