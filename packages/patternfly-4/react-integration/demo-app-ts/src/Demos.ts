@@ -116,6 +116,11 @@ export const Demos: DemoInterface[] = [
     componentType: Examples.DataListDemo
   },
   {
+    id: 'context-selector-demo',
+    name: 'ContextSelector Demo',
+    componentType: Examples.ContextSelectorDemo
+  },
+  {
     id: 'donut-chart-blue-demo',
     name: 'Donut Chart Blue Demo',
     componentType: Examples.BlueDonutDemo
@@ -126,9 +131,14 @@ export const Demos: DemoInterface[] = [
     componentType: Examples.ColorDonutDemo
   },
   {
-    id: 'context-selector-demo', 
-    name: 'ContextSelector Demo', 
-    componentType: Examples.ContextSelectorDemo
+    id: 'donut-utilization-simple-bottom-demo',
+    name: 'Donut Utilization Simple Chart, Bottom-aligned Legend Demo',
+    componentType: Examples.DonutUtilizationSimpleBottomDemo
+  },
+  {
+    id: 'donut-utilization-simple-demo',
+    name: 'Donut Utilization Simple Chart Demo',
+    componentType: Examples.DonutUtilizationSimpleDemo
   },
   {
     id: 'clipboard-copy-demo', 
@@ -161,6 +171,16 @@ export const Demos: DemoInterface[] = [
     componentType: Examples.LabelDemo
   },
   {
+    id: 'line-chart-color-demo',
+    name: 'Line Chart Multi-color Demo',
+    componentType: Examples.LineChartColorDemo
+  },
+  {
+    id: 'line-chart-green-zoom-demo',
+    name: 'Line Chart Green with Zoom Demo',
+    componentType: Examples.LineChartGreenZoomDemo
+  },
+  {
     id: 'list-demo',
     name: 'List Demo',
     componentType: Examples.ListDemo
@@ -190,10 +210,30 @@ export const Demos: DemoInterface[] = [
     name: 'Page Demo',
     componentType: Examples.PageDemo
   },
+  // {
+  //   id: 'pie-color-demo',
+  //   name: 'Pie Chart Multi-color Demo',
+  //   componentType: Examples.PieColorDemo
+  // },
   {
     id: 'popover-demo',
     name: 'Popover Demo',
     componentType: Examples.PopoverDemo
+  },
+  {
+    id: 'stack-horizontal-blue-demo',
+    name: 'Stack Chart Horizontal Blue Demo',
+    componentType: Examples.StackHorizontalBlueDemo
+  },
+  {
+    id: 'stack-vertical-blue-demo',
+    name: 'Stack Chart Vertical Blue Demo',
+    componentType: Examples.StackVerticalBlueDemo
+  },
+  {
+    id: 'stack-vertical-color-zoom-demo',
+    name: 'Stack Chart Vertical Color with Zoom Demo',
+    componentType: Examples.StackVerticalColorZoomDemo
   },
   {
     id: 'radio-demo',
