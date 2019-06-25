@@ -230,11 +230,21 @@ export const Demos: DemoInterface[] = [
     name: 'Page Demo',
     componentType: Examples.PageDemo
   },
-  // {
-  //   id: 'pie-color-demo',
-  //   name: 'Pie Chart Multi-color Demo',
-  //   componentType: Examples.PieColorDemo
-  // },
+  {
+    id: 'pie-blue-demo',
+    name: 'Pie Chart Blue Demo',
+    componentType: Examples.PieBlueDemo
+  },
+  {
+    id: 'pie-color-demo',
+    name: 'Pie Chart Multi-color Demo',
+    componentType: Examples.PieColorDemo
+  },
+  {
+    id: 'pie-orange-demo',
+    name: 'Pie Chart Orange Demo',
+    componentType: Examples.PieOrangeDemo
+  },
   {
     id: 'popover-demo',
     name: 'Popover Demo',
