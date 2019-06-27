@@ -229,7 +229,6 @@ export const Demos: DemoInterface[] = [
     id: 'donut-utilization-static-right-demo',
     name: 'Donut Utilization Static Right Demo',
     componentType: Examples.DonutUtilizationStaticRightDemo
->>>>>>> chore(charts): adds more utilization charts, updates area and bar charts
   },
   {
     id: 'empty-state-demo',
