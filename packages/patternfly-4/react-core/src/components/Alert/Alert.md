@@ -48,6 +48,50 @@ class DefaultAlert extends React.Component {
 }
 ```
 
+## Timed alert
+```js
+import React from 'react';
+import { Alert, AlertActionLink, AlertActionCloseButton } from '@patternfly/react-core';
+import { TimedToastNotification } from 'packages/patternfly-4/react-core/src/helpers/timerUtil.js'
+
+class TimedAlert extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { alertOneVisible: true, alertTwoVisible: true };
+    this.hideAlertOne = () => this.setState({ alertOneVisible: false });
+    this.hideAlertTwo = () => this.setState({ alertTwoVisible: false });
+  }
+
+  render() {
+    const { alertOneVisible, alertTwoVisible } = this.state;
+    return (
+      <React.Fragment>
+        {alertOneVisible && (
+          <TimedToastNotification>
+          <Alert
+            variant="default"
+            title="Default alert title"
+            action={<AlertActionCloseButton onClose={this.hideAlertOne} />}
+          >
+            Info alert description. <a href="#">This is a link.</a>
+          </Alert>
+          </TimedToastNotification>
+        )}
+        {alertTwoVisible && (
+          <Alert
+            variant="default"
+            title="Default alert title"
+            action={<AlertActionCloseButton onClose={this.hideAlertTwo} />}
+          />
+        )}
+        <Alert variant="default" title="Default alert title" action={<AlertActionLink>Action Button</AlertActionLink>} />
+        <Alert variant="default" title="Default alert title" />
+      </React.Fragment>
+    );
+  }
+}
+```
+
 ## Info alert
 ```js
 import React from 'react';

@@ -29,7 +29,7 @@ export const AlertIcon = ({
   className = '',
   ...props
 }: AlertIconProps) => {
-  const Icon = variantIcons[variant];
+  const Icon: any = variantIcons[variant];
   return (
     <div {...props} className={css(styles.alertIcon, className)}>
       <Icon />
