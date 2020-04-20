@@ -8,14 +8,20 @@ exports[`simple fileuploadfield 1`] = `
     className="pf-c-file-upload__file-select"
   >
     <InputGroup>
-      <ForwardRef
+      <TextInput
         aria-describedby="custom-file-upload-browse-button"
         aria-label="Do something custom with this!"
+        className=""
         id="custom-file-upload-filename"
         isDisabled={false}
         isReadOnly={true}
+        isRequired={false}
+        isValid={true}
         name="custom-file-upload-filename"
+        onChange={[Function]}
         placeholder="Do something custom with this!"
+        type="text"
+        validated="default"
         value=""
       />
       <Component

@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
-import { TextInput, TextInputBase } from '../TextInput';
+import { TextInput } from '../TextInput';
 import { ValidatedOptions } from '../../../helpers/constants';
 
 const props = {
@@ -13,7 +13,7 @@ test('input passes value and event to onChange handler', () => {
   const event = {
     currentTarget: { value: newValue }
   };
-  const view = shallow(<TextInputBase {...props} aria-label="test input" />);
+  const view = shallow(<TextInput {...props} aria-label="test input" />);
   view.find('input').simulate('change', event);
   expect(props.onChange).toBeCalledWith(newValue, event);
 });

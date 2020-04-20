@@ -56,10 +56,23 @@ exports[`simple text input 1`] = `
 `;
 
 exports[`validated text input 1`] = `
-<TextInputBase
+<input
+  aria-invalid={true}
+  aria-label="validated text input"
+  className="pf-c-form-control"
+  disabled={false}
+  onChange={[Function]}
+  readOnly={false}
+  required={false}
+  type="text"
+  value="test input"
+/>
+`;
+
+exports[`validated text input success 1`] = `
+<TextInput
   aria-label="validated text input"
   className=""
-  innerRef={null}
   isDisabled={false}
   isReadOnly={false}
   isRequired={false}
@@ -67,44 +80,19 @@ exports[`validated text input 1`] = `
   onChange={[MockFunction]}
   required={true}
   type="text"
-  validated="error"
-  value="test input"
-/>
-`;
-
-exports[`validated text input success 1`] = `
-<ForwardRef
-  aria-label="validated text input"
-  onChange={[MockFunction]}
-  required={true}
   validated="success"
   value="test input"
 >
-  <TextInputBase
+  <input
+    aria-invalid={false}
     aria-label="validated text input"
-    className=""
-    innerRef={null}
-    isDisabled={false}
-    isReadOnly={false}
-    isRequired={false}
-    isValid={true}
-    onChange={[MockFunction]}
-    required={true}
+    className="pf-c-form-control pf-m-success"
+    disabled={false}
+    onChange={[Function]}
+    readOnly={false}
+    required={false}
     type="text"
-    validated="success"
     value="test input"
-  >
-    <input
-      aria-invalid={false}
-      aria-label="validated text input"
-      className="pf-c-form-control pf-m-success"
-      disabled={false}
-      onChange={[Function]}
-      readOnly={false}
-      required={false}
-      type="text"
-      value="test input"
-    />
-  </TextInputBase>
-</ForwardRef>
+  />
+</TextInput>
 `;
