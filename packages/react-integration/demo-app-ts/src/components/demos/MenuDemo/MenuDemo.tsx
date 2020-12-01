@@ -128,13 +128,13 @@ export class MenuDemo extends Component {
         </Title>
         <Menu onSelect={this.onSimpleSelect} activeItemId={activeItem} id="menu-with-icons">
           <MenuList>
-            <MenuItem icon={<CodeBranchIcon aria-hidden />} itemId={0}>
+            <MenuItem id="icons-menu-item-1" icon={<CodeBranchIcon id="code-branch-icon" aria-hidden />} itemId={0}>
               From Git
             </MenuItem>
-            <MenuItem icon={<LayerGroupIcon aria-hidden />} itemId={1}>
+            <MenuItem id="icons-menu-item-2" icon={<LayerGroupIcon id="layer-group-icon" aria-hidden />} itemId={1}>
               Container Image
             </MenuItem>
-            <MenuItem icon={<CubeIcon aria-hidden />} itemId={2}>
+            <MenuItem id="icons-menu-item-3" icon={<CubeIcon id="cube-icon" aria-hidden />} itemId={2}>
               Docker File
             </MenuItem>
           </MenuList>
@@ -167,7 +167,7 @@ export class MenuDemo extends Component {
             <MenuItem itemId={0}>Start rollout</MenuItem>
             <MenuItem itemId={1}>Pause rollouts</MenuItem>
             <MenuItem itemId={2}>Add storage</MenuItem>
-            <MenuItem description="Description" itemId={3} flyoutMenu={flyoutMenu}>
+            <MenuItem description="Description" itemId={3} id="edit" flyoutMenu={flyoutMenu}>
               Edit
             </MenuItem>
             <MenuItem itemId={4}>Delete deployment config</MenuItem>
@@ -184,7 +184,7 @@ export class MenuDemo extends Component {
     const menuListItems = menuListItemsText
       .filter(item => !input || item.toLowerCase().includes(input.toLowerCase()))
       .map((currentValue, index) => (
-        <MenuItem key={currentValue} itemId={index}>
+        <MenuItem id="filtered-items" key={currentValue} itemId={index}>
           {currentValue}
         </MenuItem>
       ));
@@ -206,6 +206,7 @@ export class MenuDemo extends Component {
           onSearchInputChange={this.onChange}
           onSelect={this.onSimpleSelect}
           activeItemId={activeItem}
+          id="filterable-menu"
         >
           <MenuList>{menuListItems}</MenuList>
         </Menu>
@@ -221,15 +222,15 @@ export class MenuDemo extends Component {
         <Title headingLevel="h2" size="2xl">
           Menu with Links
         </Title>
-        <Menu onSelect={this.onSimpleSelect} activeItemId={activeItem}>
+        <Menu id="menu-with-links" onSelect={this.onSimpleSelect} activeItemId={activeItem}>
           <MenuList>
-            <MenuItem isExternalLink to="#default-link1" itemId={0}>
+            <MenuItem id="links-menu-link-1" isExternalLink to="#default-link1" itemId={0}>
               Link 1
             </MenuItem>
-            <MenuItem isExternalLink to="#default-link2" itemId={1}>
+            <MenuItem id="links-menu-link-2" isExternalLink to="#default-link2" itemId={1}>
               Link 2
             </MenuItem>
-            <MenuItem to="#default-link3" itemId={2}>
+            <MenuItem id="links-menu-link-3" to="#default-link3" itemId={2}>
               Link 3
             </MenuItem>
           </MenuList>
@@ -244,13 +245,13 @@ export class MenuDemo extends Component {
     return (
       <StackItem>
         <Title headingLevel="h2" size="2xl">
-          Menu with Separators
+          Menu with Separator
         </Title>
-        <Menu onSelect={this.onSimpleSelect} activeItemId={activeItem}>
+        <Menu id="menu-with-separators" onSelect={this.onSimpleSelect} activeItemId={activeItem}>
           <MenuList>
             <MenuItem itemId={0}>Action 1</MenuItem>
             <MenuItem itemId={1}>Action 2</MenuItem>
-            <Divider component="li" />
+            <Divider id="separator" component="li" />
             <MenuItem itemId={2}>Action 3</MenuItem>
           </MenuList>
         </Menu>
@@ -266,7 +267,7 @@ export class MenuDemo extends Component {
         <Title headingLevel="h2" size="2xl">
           Menu with Titled Groups
         </Title>
-        <Menu onSelect={this.onSimpleSelect} activeItemId={activeItem}>
+        <Menu id="menu-with-titled-groups" onSelect={this.onSimpleSelect} activeItemId={activeItem}>
           <MenuGroup>
             <MenuList>
               <MenuItem to="#" itemId={0}>
@@ -275,7 +276,7 @@ export class MenuDemo extends Component {
             </MenuList>
           </MenuGroup>
           <Divider />
-          <MenuGroup label="Group 1">
+          <MenuGroup id="group-1" label="Group 1">
             <MenuList>
               <MenuItem to="#" itemId={1}>
                 Link 1
@@ -284,7 +285,7 @@ export class MenuDemo extends Component {
             </MenuList>
           </MenuGroup>
           <Divider />
-          <MenuGroup label="Group 2">
+          <MenuGroup id="group-2" label="Group 2">
             <MenuList>
               <MenuItem to="#" itemId={3}>
                 Link 1
@@ -307,15 +308,27 @@ export class MenuDemo extends Component {
         <Title headingLevel="h2" size="2xl">
           Menu with Description
         </Title>
-        <Menu onSelect={this.onSimpleSelect} activeItemId={activeItem}>
+        <Menu id="menu-with-description" onSelect={this.onSimpleSelect} activeItemId={activeItem}>
           <MenuList>
-            <MenuItem icon={<CodeBranchIcon aria-hidden />} description="Description" itemId={0}>
+            <MenuItem
+              id="description-item-1"
+              icon={<CodeBranchIcon aria-hidden />}
+              description="Description"
+              itemId={0}
+            >
               Action 1
             </MenuItem>
-            <MenuItem isDisabled icon={<CodeBranchIcon aria-hidden />} description="Description" itemId={1}>
+            <MenuItem
+              id="description-item-2"
+              isDisabled
+              icon={<CodeBranchIcon aria-hidden />}
+              description="Description"
+              itemId={1}
+            >
               Action 2 disabled
             </MenuItem>
             <MenuItem
+              id="description-item-3"
               icon={<CodeBranchIcon aria-hidden />}
               description="Nunc non ornare ex, et pretium dui. Duis nec augue at urna elementum blandit tincidunt eget metus. Aenean sed metus id urna dignissim interdum. Aenean vel nisl vitae arcu vehicula pulvinar eget nec turpis. Cras sit amet est est."
               itemId={2}
@@ -341,9 +354,10 @@ export class MenuDemo extends Component {
           // eslint-disable-next-line no-console
           onActionClick={(event, itemId, actionId) => console.log(`clicked on ${itemId} - ${actionId}`)}
           activeItemId={activeItem}
+          id="menu-with-actions"
         >
           <MenuGroup label="Actions">
-            <MenuList>
+            <MenuList id="actions-list">
               <MenuItem
                 isSelected={selectedItems.indexOf(0) !== -1}
                 actions={
@@ -353,6 +367,7 @@ export class MenuDemo extends Component {
                     // eslint-disable-next-line no-console
                     onClick={() => console.log('clicked on code icon')}
                     aria-label="Code"
+                    id="action-1"
                   />
                 }
                 description="This is a description"
@@ -423,7 +438,12 @@ export class MenuDemo extends Component {
         <Title headingLevel="h2" size="2xl">
           Menu with Favorites
         </Title>
-        <Menu onSelect={this.onSimpleSelect} onActionClick={this.onFavorite} activeItemId={activeItem}>
+        <Menu
+          id="favorites-menu"
+          onSelect={this.onSimpleSelect}
+          onActionClick={this.onFavorite}
+          activeItemId={activeItem}
+        >
           {favorites.length > 0 && (
             <React.Fragment>
               <MenuGroup label="Favorites">
@@ -482,11 +502,20 @@ export class MenuDemo extends Component {
         <Title headingLevel="h2" size="2xl">
           Menu with Single Select
         </Title>
-        <Menu onSelect={this.onSingleOptionSelect} activeItemId={activeItem} selected={selectedItem}>
+        <Menu
+          onSelect={this.onSingleOptionSelect}
+          activeItemId={activeItem}
+          selected={selectedItem}
+          id="single-select-menu"
+        >
           <MenuList>
-            <MenuItem itemId={0}>Option 1</MenuItem>
-            <MenuItem itemId={1}>Option 2</MenuItem>
-            <MenuItem icon={<TableIcon aria-hidden />} itemId={2}>
+            <MenuItem id="single-select-item-1" itemId={0}>
+              Option 1
+            </MenuItem>
+            <MenuItem id="single-select-item-2" itemId={1}>
+              Option 2
+            </MenuItem>
+            <MenuItem id="single-select-item-3" icon={<TableIcon aria-hidden />} itemId={2}>
               Option 3
             </MenuItem>
           </MenuList>
@@ -503,11 +532,20 @@ export class MenuDemo extends Component {
         <Title headingLevel="h2" size="2xl">
           Menu with Multi Select
         </Title>
-        <Menu onSelect={this.onMultiOptionSelect} activeItemId={activeItem} selected={selectedItems}>
+        <Menu
+          onSelect={this.onMultiOptionSelect}
+          activeItemId={activeItem}
+          selected={selectedItems}
+          id="multi-select-menu"
+        >
           <MenuList>
-            <MenuItem itemId={0}>Option 1</MenuItem>
-            <MenuItem itemId={1}>Option 2</MenuItem>
-            <MenuItem icon={<TableIcon aria-hidden />} itemId={2}>
+            <MenuItem id="multi-select-item-1" itemId={0}>
+              Option 1
+            </MenuItem>
+            <MenuItem id="multi-select-item-2" itemId={1}>
+              Option 2
+            </MenuItem>
+            <MenuItem id="multi-select-item-3" icon={<TableIcon aria-hidden />} itemId={2}>
               Option 3
             </MenuItem>
           </MenuList>
