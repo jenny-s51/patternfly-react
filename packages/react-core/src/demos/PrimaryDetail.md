@@ -978,6 +978,7 @@ import {
   Flex,
   FlexItem,
   Gallery,
+  InputGroup,
   KebabToggle,
   OverflowMenu,
   OverflowMenuControl,
@@ -986,6 +987,7 @@ import {
   PageSectionVariants,
   Pagination,
   Progress,
+  SearchInput,
   Select,
   SelectOption,
   SelectVariant,
@@ -1000,6 +1002,7 @@ import {
 } from '@patternfly/react-core';
 import DashboardWrapper from './examples/DashboardWrapper';
 import TrashIcon from '@patternfly/react-icons/dist/esm/icons/trash-icon';
+import FilterIcon from '@patternfly/react-icons/dist/esm/icons/filter-icon';
 import pfIcon from './pf-logo-small.svg';
 import activeMQIcon from './activemq-core_200x150.png';
 import avroIcon from './camel-avro_200x150.png';
@@ -1318,19 +1321,19 @@ class PrimaryDetailCardView extends React.Component {
     ];
 
     return (
-      <ToolbarFilter categoryName="Products" chips={filters.products} deleteChip={this.onDelete}>
-        <Select
-          variant={SelectVariant.checkbox}
-          aria-label="Products"
-          onToggle={this.onToolbarDropdownToggle}
-          onSelect={this.onNameSelect}
-          selections={filters.products}
-          isExpanded={isLowerToolbarDropdownOpen}
-          placeholderText="Creator"
-        >
-          {filterDropdownItems}
-        </Select>
-      </ToolbarFilter>
+      <Select
+        variant={SelectVariant.checkbox}
+        toggleIcon={<FilterIcon />}
+        width="280px"
+        aria-label="Products"
+        onToggle={this.onToolbarDropdownToggle}
+        onSelect={this.onNameSelect}
+        selections={filters.products}
+        isExpanded={isLowerToolbarDropdownOpen}
+        placeholderText="Name"
+      >
+        {filterDropdownItems}
+      </Select>
     );
   }
 
@@ -1417,27 +1420,41 @@ class PrimaryDetailCardView extends React.Component {
 
     const toolbarItems = (
       <React.Fragment>
-        <ToolbarItem variant="overflow-menu">
-          <OverflowMenu breakpoint="xl">
-            <OverflowMenuItem isPersistent>{this.buildSelectDropdown()}</OverflowMenuItem>
-            <OverflowMenuItem isPersistent>{this.buildFilterDropdown()}</OverflowMenuItem>
-            <OverflowMenuItem isPersistent>
-              <Button variant="primary">Create a Project</Button>
-            </OverflowMenuItem>
-            <OverflowMenuControl hasAdditionalOptions>
-              <Dropdown
-                onSelect={this.onToolbarKebabDropdownSelect}
-                toggle={
-                  <KebabToggle onToggle={this.onToolbarKebabDropdownToggle} id="card-view-data-toolbar-dropdown" />
-                }
-                isOpen={isLowerToolbarKebabDropdownOpen}
-                isPlain
-                dropdownItems={toolbarKebabDropdownItems}
-                isFlipEnabled
-                menuAppendTo="parent"
-              />
-            </OverflowMenuControl>
-          </OverflowMenu>
+        <ToolbarItem>{this.buildSelectDropdown()}</ToolbarItem>
+
+        <ToolbarItem variant="search-filter">
+          <InputGroup role="group">
+            {this.buildFilterDropdown()}
+            <SearchInput
+              name="full-page-data-toolbar-input1"
+              id="full-page-data-toolbar-input1"
+              type="search"
+              aria-label="search input example"
+              placeholder="Filter by name"
+              onChange={this.onInputChange}
+              value=""
+            />
+          </InputGroup>
+        </ToolbarItem>
+        <ToolbarItem>
+          <Button variant="primary">Create instance</Button>
+        </ToolbarItem>
+        <ToolbarItem>
+          <Button variant="primary">Create instance</Button>
+        </ToolbarItem>
+        <ToolbarItem>
+          <Button variant="secondary">Action</Button>
+        </ToolbarItem>
+        <ToolbarItem hasAdditionalOptions>
+          <Dropdown
+            onSelect={this.onToolbarKebabDropdownSelect}
+            toggle={<KebabToggle onToggle={this.onToolbarKebabDropdownToggle} id="card-view-data-toolbar-dropdown" />}
+            isOpen={isLowerToolbarKebabDropdownOpen}
+            isPlain
+            dropdownItems={toolbarKebabDropdownItems}
+            isFlipEnabled
+            menuAppendTo="parent"
+          />
         </ToolbarItem>
       </React.Fragment>
     );
