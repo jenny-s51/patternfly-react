@@ -1710,7 +1710,7 @@ class ColumnManagementAction extends React.Component {
 
 ### Filterable
 
-```js
+```js isFullscreen
 import React from 'react';
 import {
   Button,
@@ -1758,19 +1758,151 @@ class FilterTableDemo extends React.Component {
         { title: 'Applications' },
         { title: 'Workspaces' },
         { title: 'Status' },
-        { title: 'Location' }
+        { title: 'Location' },
+        { title: 'Last Modified' },
+        { title: 'URL' }
       ],
       rows: [
-        { cells: ['US-Node 1', '5', '25', '5', 'Stopped', 'Raleigh'] },
-        { cells: ['US-Node 2', '5', '30', '2', 'Down', 'Westford'] },
-        { cells: ['US-Node 3', '13', '35', '12', 'Degraded', 'Boston'] },
-        { cells: ['US-Node 4', '2', '5', '18', 'Needs Maintainence', 'Raleigh'] },
-        { cells: ['US-Node 5', '7', '30', '5', 'Running', 'Boston'] },
-        { cells: ['US-Node 6', '5', '20', '15', 'Stopped', 'Raleigh'] },
-        { cells: ['CZ-Node 1', '12', '48', '13', 'Down', 'Brno'] },
-        { cells: ['CZ-Node 2', '3', '8', '20', 'Running', 'Brno'] },
-        { cells: ['CZ-Remote-Node 1', '15', '20', '10', 'Down', 'Brno'] },
-        { cells: ['Bangalore-Node 1', '20', '30', '30', 'Running', 'Bangalore'] }
+        {
+          cells: [
+            'US-Node 1',
+            '2',
+            '23',
+            '19',
+            'Stopped',
+            'Boston',
+            '2 hours ago',
+            <React.Fragment>
+              <a href="#">http://www.redhat.com/en/office-locations/US-node1</a>
+            </React.Fragment>
+          ]
+        },
+        {
+          cells: [
+            'US-Node 2',
+            '16',
+            '15',
+            '30',
+            'Down',
+            'Atlanta',
+            '5 hours ago',
+            <React.Fragment>
+              <a href="#">http://www.redhat.com/en/office-locations/US-node2</a>
+            </React.Fragment>
+          ]
+        },
+        {
+          cells: [
+            'US-Node 3',
+            '13',
+            '40',
+            '11',
+            'Running',
+            'San Francisco',
+            '20 minutes ago',
+            <React.Fragment>
+              <a href="#">http://www.redhat.com/en/office-locations/US-node3</a>
+            </React.Fragment>
+          ]
+        },
+        {
+          cells: [
+            'US-Node 4',
+            '3',
+            '19',
+            '19',
+            'Needs Maintainence',
+            'Raleigh',
+            '10 minutes ago',
+            <React.Fragment>
+              <a href="#">http://www.redhat.com/en/office-locations/US-node4</a>
+            </React.Fragment>
+          ]
+        },
+        {
+          cells: [
+            'US-Node 5',
+            '14',
+            '8',
+            '16',
+            'Running',
+            'Raleigh',
+            '15 minutes ago',
+            <React.Fragment>
+              <a href="#">http://www.redhat.com/en/office-locations/US-node5</a>
+            </React.Fragment>
+          ]
+        },
+        {
+          cells: [
+            'US-Node 6',
+            '10',
+            '14',
+            '30',
+            'Running',
+            'Raleigh',
+            '4 hours ago',
+            <React.Fragment>
+              <a href="#">http://www.redhat.com/en/office-locations/US-node6</a>
+            </React.Fragment>
+          ]
+        },
+        {
+          cells: [
+            'CZ-Node 1',
+            '16',
+            '48',
+            '5',
+            'Running',
+            'Brno',
+            '7 hours ago',
+            <React.Fragment>
+              <a href="#">http://www.redhat.com/en/office-locations/CZ-node1</a>
+            </React.Fragment>
+          ]
+        },
+        {
+          cells: [
+            'CZ-Node 2',
+            '5',
+            '42',
+            '1',
+            'Needs Maintainence',
+            'Prague',
+            '50 minutes ago',
+            <React.Fragment>
+              <a href="#">http://www.redhat.com/en/office-locations/CZ-node2</a>
+            </React.Fragment>
+          ]
+        },
+        {
+          cells: [
+            'CZ-Remote-Node 1',
+            '12',
+            '8',
+            '14',
+            'Needs Maintenance',
+            'Brno',
+            '20 minutes ago',
+            <React.Fragment>
+              <a href="#">http://www.redhat.com/en/office-locations/CZ-remote-node1</a>
+            </React.Fragment>
+          ]
+        },
+        {
+          cells: [
+            'Bangalore-Node 1',
+            '12',
+            '38',
+            '5',
+            'Running',
+            'Bangalore',
+            '25 minutes ago',
+            <React.Fragment>
+              <a href="#">http://www.redhat.com/en/office-locations/Bangalore-node1</a>
+            </React.Fragment>
+          ]
+        }
       ],
       inputValue: ''
     };
@@ -1889,7 +2021,7 @@ class FilterTableDemo extends React.Component {
     const categoryMenuItems = [
       <SelectOption key="cat1" value="Location" />,
       <SelectOption key="cat2" value="Name" />,
-      <SelectOption key="cat3" value="Status" />,
+      <SelectOption key="cat3" value="Status" />
     ];
 
     return (
