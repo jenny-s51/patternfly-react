@@ -150,6 +150,15 @@ class BulkSelectTableDemo extends React.Component {
       .catch(err => this.setState({ error: err, loading: false }));
   }
 
+  testFetchData() {
+    this.setState({ loading: true });
+    fetch(`https://mocki.io/v1/3d3c0710-8419-410f-b436-019506a3e998`)
+      .then(resp => resp.json())
+      .then(resp => this.setState({ res: resp, loading: false }))
+      .then(() => this.updateSelected())
+      .catch(err => this.setState({ error: err, loading: false }));
+  }
+
   componentDidMount() {
     this.fetch(this.state.page, this.state.perPage);
   }
