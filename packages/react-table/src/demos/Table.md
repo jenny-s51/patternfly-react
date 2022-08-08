@@ -26,10 +26,11 @@ import AngleRightIcon from '@patternfly/react-icons/dist/esm/icons/angle-right-i
 import BarsIcon from '@patternfly/react-icons/dist/esm/icons/bars-icon';
 import AttentionBellIcon from '@patternfly/react-icons/dist/esm/icons/attention-bell-icon';
 import DashboardWrapper from '@patternfly/react-core/src/demos/examples/DashboardWrapper';
+import { rows, columns } from '../table-data/Data.tsx'
 
 ## Demos
 
-### Bulk select
+### Bulk select with sample data in API
 
 ```js isFullscreen
 import React from 'react';
@@ -57,6 +58,7 @@ class BulkSelectTableDemo extends React.Component {
       res: [],
       perPage: 20,
       page: 1,
+      rows: [],
       error: null,
       loading: true,
       selectedItems: [],
@@ -139,28 +141,53 @@ class BulkSelectTableDemo extends React.Component {
         return { isDropDownOpen: !prevState.isDropDownOpen };
       });
     };
+
+    this.handleSetPage = (_evt, newPage, perPage, startIdx, endIdx) => {
+      console.log("in funciton", this.state.res);
+      console.log(startIdx);
+      console.log(endIdx);
+      console.log("WHAT", this.state.res.slice(startIdx, endIdx));
+      
+    this.setState({
+      page: newPage,
+      rows: this.state.res.slice(startIdx, endIdx)
+    });
   }
 
-  fetch(page, perPage) {
-    this.setState({ loading: true });
-    fetch(`https://jsonplaceholder.typicode.com/posts?_page=${page}&_limit=${perPage}`)
-      .then(resp => resp.json())
-      .then(resp => this.setState({ res: resp, perPage, page, loading: false }))
-      .then(() => this.updateSelected())
-      .catch(err => this.setState({ error: err, loading: false }));
+  this.handlePerPageSelect = (_evt, newPerPage, newPage, startIdx, endIdx) => {
+    this.setState({
+      perPage: newPerPage,
+      page: newPage,
+      rows: this.state.res.slice(startIdx, endIdx)
+    });
   }
+  }
+
+  // fetch(page, perPage) {
+  //   this.setState({ loading: true });
+  //   fetch(`https://jsonplaceholder.typicode.com/posts?_page=${page}&_limit=${perPage}`)
+  //     .then(resp => resp.json())
+  //     .then(resp => this.setState({ res: resp, perPage, page, loading: false }))
+  //     .then(() => this.updateSelected())
+  //     .catch(err => this.setState({ error: err, loading: false }));
+  // }
 
   testFetchData() {
     this.setState({ loading: true });
     fetch(`https://mocki.io/v1/3d3c0710-8419-410f-b436-019506a3e998`)
       .then(resp => resp.json())
-      .then(resp => this.setState({ res: resp, loading: false }))
+      .then(resp => this.setState({ res: resp, rows: resp, loading: false }))
       .then(() => this.updateSelected())
       .catch(err => this.setState({ error: err, loading: false }));
   }
 
-  componentDidMount() {
-    this.fetch(this.state.page, this.state.perPage);
+
+  // componentDidMount() {
+  //   this.fetch(this.state.page, this.state.perPage);
+  // }
+
+    componentDidMount() {
+    this.testFetchData();
   }
 
   renderPagination(variant) {
@@ -168,15 +195,17 @@ class BulkSelectTableDemo extends React.Component {
     return (
       <Pagination
         isCompact
-        itemCount={100}
+        itemCount={this.state.res.length}
         page={page}
         perPage={perPage}
-        onSetPage={(_evt, value) => {
-          this.fetch(value, perPage);
-        }}
-        onPerPageSelect={(_evt, value) => {
-          this.fetch(1, value);
-        }}
+        onSetPage={this.handleSetPage}
+        onPerPageSelect={this.handlePerPageSelect}
+        perPageOptions={[
+          { title: '10', value: 10 },
+          { title: '20', value: 20 },
+          { title: '50', value: 50 },
+          { title: '100', value: 100 }
+        ]}
         variant={variant}
         titles={{
           paginationTitle: `${variant} pagination`
@@ -250,10 +279,22 @@ class BulkSelectTableDemo extends React.Component {
 
   render() {
     const { loading, res } = this.state;
-    const rows = res.map(post => ({
-      cells: [post.title, post.body],
+    const rows = this.state.rows.map(post => ({
+      cells: [post.servers, post.threads, post.applications, post.workspaces, post.status, post.location, post.lastModified,       {
+        title: (
+          <React.Fragment>
+            <a href="#">{post.url}</a>
+          </React.Fragment>
+        ),
+        props: { column: 'URL' }
+      }],
       selected: post.selected
-    }));
+    })).slice(0, this.state.perPage);
+
+    console.log("RES???", res);
+    console.log("rows???", rows);
+    console.log("what is test", rows);
+
 
     return (
       <DashboardWrapper hasPageTemplateTitle>
@@ -262,7 +303,285 @@ class BulkSelectTableDemo extends React.Component {
           {!loading && (
             <Table
               aria-label="Bulk Select Table Demo"
-              cells={['Title', 'Body']}
+              cells={['Servers', 'Threads', 'Applications', 'Workspaces', 'Status', 'Location', 'Last Modified', 'URL']}
+              rows={rows}
+              onSelect={this.onSelect}
+              canSelectAll={false}
+            >
+              <TableHeader />
+              <TableBody />
+            </Table>
+          )}
+
+          {loading && (
+            <div className="pf-l-bullseye">
+              <Title headingLevel="h2" size="3xl">
+                Please wait while loading data
+              </Title>
+            </div>
+          )}
+          {this.renderPagination('bottom')}
+        </PageSection>
+      </DashboardWrapper>
+    );
+  }
+}
+```
+
+### Bulk select with sample data in file
+```js isFullscreen
+import React from 'react';
+import {
+  Dropdown,
+  DropdownItem,
+  DropdownPosition,
+  DropdownToggle,
+  DropdownToggleCheckbox,
+  PageSection,
+  Pagination,
+  Title,
+  Toolbar,
+  ToolbarContent,
+  ToolbarGroup,
+  ToolbarItem
+} from '@patternfly/react-core';
+import { Table, TableHeader, TableBody } from '@patternfly/react-table';
+import DashboardWrapper from '@patternfly/react-core/src/demos/examples/DashboardWrapper';
+import {rows, columns} from '../table-data/Data.tsx'
+
+class BulkSelectTableDemo extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      res: [],
+      perPage: 20,
+      page: 1,
+      rows: [],
+      error: null,
+      loading: true,
+      selectedItems: [],
+      numSelected: 0,
+      isDropDownOpen: false,
+      isKebabOpen: false,
+      searchValue: ''
+    };
+
+    this.onSelect = (event, isSelected, rowId) => {
+      const { selectedItems } = this.state;
+      const rows = [...this.state.res];
+      const id = rows[rowId].id;
+      rows[rowId].selected = isSelected;
+      this.setState((prevState, props) => {
+        return {
+          res: rows,
+          selectedItems: isSelected
+            ? [...prevState.selectedItems, id]
+            : prevState.selectedItems.filter(itemId => itemId !== id)
+        };
+      });
+    };
+
+    this.updateSelected = () => {
+      const { res, selectedItems } = this.state;
+      let rows = res.map(post => {
+        post.selected = selectedItems.includes(post.id);
+        return post;
+      });
+
+      this.setState({
+        res: rows
+      });
+    };
+
+    this.handleSelectClick = newState => {
+      if (newState === 'none') {
+        this.setState(
+          {
+            selectedItems: []
+          },
+          this.updateSelected
+        );
+      } else if (newState === 'page') {
+        let newRows = [];
+        let rows = this.state.res.map(post => {
+          const isSelected = post.selected;
+          newRows = isSelected ? [...newRows] : [...newRows, post.id];
+          post.selected = true;
+          return post;
+        });
+
+        this.setState((prevState, props) => {
+          return {
+            selectedItems: prevState.selectedItems.concat(newRows)
+          };
+        }, this.updateSelected);
+      } else {
+        let newRows = [];
+        for (var i = 1; i <= 100; i++) newRows = [...newRows, i];
+
+        this.setState(
+          {
+            selectedItems: newRows
+          },
+          this.updateSelected
+        );
+      }
+    };
+
+    this.onDropDownToggle = isOpen => {
+      this.setState({
+        isDropDownOpen: isOpen
+      });
+    };
+
+    this.onDropDownSelect = event => {
+      this.setState((prevState, props) => {
+        return { isDropDownOpen: !prevState.isDropDownOpen };
+      });
+    };
+
+    this.handleSetPage = (_evt, newPage, perPage, startIdx, endIdx) => {
+      console.log("in funciton", this.state.res);
+      console.log(startIdx);
+      console.log(endIdx);
+      console.log("WHAT", this.state.res.slice(startIdx, endIdx));
+      
+    this.setState({
+      page: newPage,
+      rows: this.state.res.slice(startIdx, endIdx)
+    });
+  }
+
+  this.handlePerPageSelect = (_evt, newPerPage, newPage, startIdx, endIdx) => {
+    this.setState({
+      perPage: newPerPage,
+      page: newPage,
+      rows: this.state.res.slice(startIdx, endIdx)
+    });
+  }
+  }
+
+  // fetch(page, perPage) {
+  //   this.setState({ loading: true });
+  //   fetch(`https://jsonplaceholder.typicode.com/posts?_page=${page}&_limit=${perPage}`)
+  //     .then(resp => resp.json())
+  //     .then(resp => this.setState({ res: resp, perPage, page, loading: false }))
+  //     .then(() => this.updateSelected())
+  //     .catch(err => this.setState({ error: err, loading: false }));
+  // }
+
+
+  // componentDidMount() {
+  //   this.fetch(this.state.page, this.state.perPage);
+  // }
+
+    componentDidMount() {
+    this.testFetchData();
+  }
+
+  renderPagination(variant) {
+    const { page, perPage } = this.state;
+    return (
+      <Pagination
+        isCompact
+        itemCount={this.state.res.length}
+        page={page}
+        perPage={perPage}
+        onSetPage={this.handleSetPage}
+        onPerPageSelect={this.handlePerPageSelect}
+        perPageOptions={[
+          { title: '10', value: 10 },
+          { title: '20', value: 20 },
+          { title: '50', value: 50 },
+          { title: '100', value: 100 }
+        ]}
+        variant={variant}
+        titles={{
+          paginationTitle: `${variant} pagination`
+        }}
+      />
+    );
+  }
+
+  buildSelectDropdown() {
+    const { isDropDownOpen, selectedItems } = this.state;
+    const numSelected = selectedItems.length;
+    const allSelected = numSelected === 100;
+    const anySelected = numSelected > 0;
+    const someChecked = anySelected ? null : false;
+    const isChecked = allSelected ? true : someChecked;
+
+    const items = [
+      <DropdownItem key="item-1" onClick={() => this.handleSelectClick('none')}>
+        Select none (0 items)
+      </DropdownItem>,
+      <DropdownItem key="item-2" onClick={() => this.handleSelectClick('page')}>
+        Select page ({this.state.perPage} items)
+      </DropdownItem>,
+      <DropdownItem key="item-3" onClick={() => this.handleSelectClick('all')}>
+        Select all (100 items)
+      </DropdownItem>
+    ];
+
+    return (
+      <Dropdown
+        onSelect={this.onDropDownSelect}
+        position={DropdownPosition.left}
+        toggle={
+          <DropdownToggle
+            splitButtonItems={[
+              <DropdownToggleCheckbox
+                id="example-checkbox-2"
+                key="split-checkbox"
+                aria-label={anySelected ? 'Deselect all' : 'Select all'}
+                isChecked={isChecked}
+                onClick={() => {
+                  anySelected ? this.handleSelectClick('none') : this.handleSelectClick('all');
+                }}
+              ></DropdownToggleCheckbox>
+            ]}
+            onToggle={this.onDropDownToggle}
+          >
+            {numSelected !== 0 && <React.Fragment>{numSelected} selected</React.Fragment>}
+          </DropdownToggle>
+        }
+        isOpen={isDropDownOpen}
+        dropdownItems={items}
+      />
+    );
+  }
+
+  renderToolbar() {
+    return (
+      <React.Fragment>
+        <Toolbar>
+          <ToolbarContent>
+            <ToolbarGroup>
+              <ToolbarItem variant="bulk-select">{this.buildSelectDropdown()}</ToolbarItem>
+            </ToolbarGroup>
+            <ToolbarItem variant="pagination">{this.renderPagination('top')}</ToolbarItem>
+          </ToolbarContent>
+        </Toolbar>
+      </React.Fragment>
+    );
+  }
+
+  render() {
+    const { loading, res } = this.state;
+
+    console.log("RES???", res);
+    console.log("rows???", rows);
+    console.log("what is test", rows);
+
+
+    return (
+      <DashboardWrapper hasPageTemplateTitle>
+        <PageSection isWidthLimited>
+          {this.renderToolbar()}
+          {!loading && (
+            <Table
+              aria-label="Bulk Select Table Demo"
+              cells={columns}
               rows={rows}
               onSelect={this.onSelect}
               canSelectAll={false}

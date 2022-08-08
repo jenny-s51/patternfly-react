@@ -1,8 +1,7 @@
 /* eslint-disable no-console */
 import React from 'react';
 import { ICell, IRow } from '../components/Table';
-import random from 'lodash/random';
-import sample from 'lodash/sample';
+import _ from 'lodash';
 
 export const columns: (ICell | string)[] = [
   { title: 'Servers' },
@@ -19,11 +18,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'US-Node 1',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Raleigh', 'Boston', 'Atlanta', 'San Francisco']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Raleigh', 'Boston', 'Atlanta', 'San Francisco']),
       '2 hours ago',
       {
         title: (
@@ -38,11 +37,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'US-Node 2',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Raleigh', 'Boston', 'Atlanta', 'San Francisco']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Raleigh', 'Boston', 'Atlanta', 'San Francisco']),
       '5 hours ago',
       {
         title: (
@@ -57,11 +56,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'US-Node 3',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Raleigh', 'Boston', 'Atlanta', 'San Francisco']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Raleigh', 'Boston', 'Atlanta', 'San Francisco']),
       '20 minutes ago',
       {
         title: (
@@ -76,11 +75,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'US-Node 4',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Raleigh', 'Boston', 'Atlanta', 'San Francisco']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Raleigh', 'Boston', 'Atlanta', 'San Francisco']),
       '10 minutes ago',
       {
         title: (
@@ -95,11 +94,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'US-Node 5',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Raleigh', 'Boston', 'Atlanta', 'San Francisco']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Raleigh', 'Boston', 'Atlanta', 'San Francisco']),
       '15 minutes ago',
       {
         title: (
@@ -114,11 +113,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'US-Node 6',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Raleigh', 'Boston', 'Atlanta', 'San Francisco']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Raleigh', 'Boston', 'Atlanta', 'San Francisco']),
       '4 hours ago',
       {
         title: (
@@ -133,11 +132,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'US-Node 7',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Raleigh', 'Boston', 'Atlanta', 'San Francisco']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Raleigh', 'Boston', 'Atlanta', 'San Francisco']),
       '10 minutes ago',
       {
         title: (
@@ -152,11 +151,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'US-Node 8',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Raleigh', 'Boston', 'Atlanta', 'San Francisco']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Raleigh', 'Boston', 'Atlanta', 'San Francisco']),
       '8 hours ago',
       {
         title: (
@@ -171,11 +170,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'US-Node 9',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Raleigh', 'Boston', 'Atlanta', 'San Francisco']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Raleigh', 'Boston', 'Atlanta', 'San Francisco']),
       '1 hour ago',
       {
         title: (
@@ -190,11 +189,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'US-Node 10',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Raleigh', 'Boston', 'Atlanta', 'San Francisco']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Raleigh', 'Boston', 'Atlanta', 'San Francisco']),
       '2 hours ago',
       {
         title: (
@@ -209,11 +208,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'US-Node 11',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Raleigh', 'Boston', 'Atlanta', 'San Francisco']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Raleigh', 'Boston', 'Atlanta', 'San Francisco']),
       '55 minutes ago',
       {
         title: (
@@ -228,11 +227,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'US-Node 12',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Raleigh', 'Boston', 'Atlanta', 'San Francisco']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Raleigh', 'Boston', 'Atlanta', 'San Francisco']),
       '1 hour ago',
       {
         title: (
@@ -247,11 +246,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'US-Node 13',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Raleigh', 'Boston', 'Atlanta', 'San Francisco']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Raleigh', 'Boston', 'Atlanta', 'San Francisco']),
       '20 minutes ago',
       {
         title: (
@@ -266,11 +265,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'US-Node 14',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Raleigh', 'Boston', 'Atlanta', 'San Francisco']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Raleigh', 'Boston', 'Atlanta', 'San Francisco']),
       '4 hours ago',
       {
         title: (
@@ -285,11 +284,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'US-Node 15',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Raleigh', 'Boston', 'Atlanta', 'San Francisco']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Raleigh', 'Boston', 'Atlanta', 'San Francisco']),
       '10 minutes ago',
       {
         title: (
@@ -304,11 +303,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'US-Node 16',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Raleigh', 'Boston', 'Atlanta', 'San Francisco']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Raleigh', 'Boston', 'Atlanta', 'San Francisco']),
       '5 minutes ago',
       {
         title: (
@@ -323,11 +322,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'US-Node 17',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Raleigh', 'Boston', 'Atlanta', 'San Francisco']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Raleigh', 'Boston', 'Atlanta', 'San Francisco']),
       '5 hours ago',
       {
         title: (
@@ -342,11 +341,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'US-Node 18',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Raleigh', 'Boston', 'Atlanta', 'San Francisco']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Raleigh', 'Boston', 'Atlanta', 'San Francisco']),
       '10 minutes ago',
       {
         title: (
@@ -361,11 +360,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'US-Node 19',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Raleigh', 'Boston', 'Atlanta', 'San Francisco']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Raleigh', 'Boston', 'Atlanta', 'San Francisco']),
       '30 minutes ago',
       {
         title: (
@@ -380,11 +379,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'US-Node 20',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Raleigh', 'Boston', 'Atlanta', 'San Francisco']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Raleigh', 'Boston', 'Atlanta', 'San Francisco']),
       '3 hours ago',
       {
         title: (
@@ -399,11 +398,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'US-Node 21',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Raleigh', 'Boston', 'Atlanta', 'San Francisco']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Raleigh', 'Boston', 'Atlanta', 'San Francisco']),
       '15 minutes ago',
       {
         title: (
@@ -418,11 +417,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'US-Node 22',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Raleigh', 'Boston', 'Atlanta', 'San Francisco']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Raleigh', 'Boston', 'Atlanta', 'San Francisco']),
       '2 hours ago',
       {
         title: (
@@ -437,11 +436,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'US-Node 23',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Raleigh', 'Boston', 'Atlanta', 'San Francisco']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Raleigh', 'Boston', 'Atlanta', 'San Francisco']),
       '2 hours ago',
       {
         title: (
@@ -456,11 +455,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'US-Node 24',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Raleigh', 'Boston', 'Atlanta', 'San Francisco']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Raleigh', 'Boston', 'Atlanta', 'San Francisco']),
       '40 minutes ago',
       {
         title: (
@@ -475,11 +474,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'US-Node 25',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Raleigh', 'Boston', 'Atlanta', 'San Francisco']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Raleigh', 'Boston', 'Atlanta', 'San Francisco']),
       '1 hour ago',
       {
         title: (
@@ -494,11 +493,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'US-Node 26',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Raleigh', 'Boston', 'Atlanta', 'San Francisco']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Raleigh', 'Boston', 'Atlanta', 'San Francisco']),
       '2 hours ago',
       {
         title: (
@@ -513,11 +512,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'CZ-Node 1',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Brno', 'Prague']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Brno', 'Prague']),
       '7 hours ago',
       {
         title: (
@@ -532,11 +531,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'CZ-Node 2',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Brno', 'Prague']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Brno', 'Prague']),
       '50 minutes ago',
       {
         title: (
@@ -551,11 +550,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'CZ-Node 3',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Brno', 'Prague']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Brno', 'Prague']),
       '10 minutes ago',
       {
         title: (
@@ -570,11 +569,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'CZ-Node 4',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Brno', 'Prague']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Brno', 'Prague']),
       '3 hours ago',
       {
         title: (
@@ -589,11 +588,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'CZ-Node 5',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Brno', 'Prague']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Brno', 'Prague']),
       '2 hours ago',
       {
         title: (
@@ -608,11 +607,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'CZ-Node 6',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Brno', 'Prague']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Brno', 'Prague']),
       '2 hours ago',
       {
         title: (
@@ -627,11 +626,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'CZ-Node 7',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Brno', 'Prague']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Brno', 'Prague']),
       '25 minutes ago',
       {
         title: (
@@ -646,11 +645,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'CZ-Node 8',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Brno', 'Prague']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Brno', 'Prague']),
       '1 hour ago',
       {
         title: (
@@ -665,11 +664,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'CZ-Node 9',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Brno', 'Prague']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Brno', 'Prague']),
       '15 minutes ago',
       {
         title: (
@@ -684,11 +683,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'CZ-Node 10',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Brno', 'Prague']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Brno', 'Prague']),
       '3 hours ago',
       {
         title: (
@@ -703,11 +702,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'CZ-Node 11',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Brno', 'Prague']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Brno', 'Prague']),
       '30 minutes ago',
       {
         title: (
@@ -722,11 +721,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'CZ-Node 12',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Brno', 'Prague']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Brno', 'Prague']),
       '5 minutes ago',
       {
         title: (
@@ -741,11 +740,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'CZ-Node 13',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Brno', 'Prague']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Brno', 'Prague']),
       '45 minutes ago',
       {
         title: (
@@ -760,11 +759,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'CZ-Node 14',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Brno', 'Prague']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Brno', 'Prague']),
       '2 hours ago',
       {
         title: (
@@ -779,11 +778,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'CZ-Node 15',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Brno', 'Prague']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Brno', 'Prague']),
       '10 minutes ago',
       {
         title: (
@@ -798,11 +797,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'CZ-Remote-Node 1',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Brno', 'Prague']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Brno', 'Prague']),
       '20 minutes ago',
       {
         title: (
@@ -817,11 +816,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'CZ--Remote-Node 2',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Brno', 'Prague']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Brno', 'Prague']),
       '15 minutes ago',
       {
         title: (
@@ -836,11 +835,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'CZ-Remote-Node 3',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Brno', 'Prague']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Brno', 'Prague']),
       '2 hours ago',
       {
         title: (
@@ -855,11 +854,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'CZ-Remote-Node 4',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Brno', 'Prague']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Brno', 'Prague']),
       '1 hour ago',
       {
         title: (
@@ -874,11 +873,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'CZ-Remote-Node 5',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Brno', 'Prague']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Brno', 'Prague']),
       '30 minutes ago',
       {
         title: (
@@ -893,11 +892,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'CZ-Remote-Node 6',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Brno', 'Prague']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Brno', 'Prague']),
       '2 hours ago',
       {
         title: (
@@ -912,11 +911,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'CZ-Remote-Node 7',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Brno', 'Prague']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Brno', 'Prague']),
       '45 minutes ago',
       {
         title: (
@@ -931,11 +930,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'CZ-Remote-Node 8',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Brno', 'Prague']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Brno', 'Prague']),
       '6 hours ago',
       {
         title: (
@@ -950,11 +949,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'CZ-Remote-Node 9',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Brno', 'Prague']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Brno', 'Prague']),
       '50 minutes ago',
       {
         title: (
@@ -969,11 +968,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'CZ-Remote-Node 10',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Brno', 'Prague']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Brno', 'Prague']),
       '3 hours ago',
       {
         title: (
@@ -988,11 +987,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'CZ-Remote-Node 11',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Brno', 'Prague']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Brno', 'Prague']),
       '2 hours ago',
       {
         title: (
@@ -1007,11 +1006,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'CZ-Remote-Node 12',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Brno', 'Prague']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Brno', 'Prague']),
       '20 minutes ago',
       {
         title: (
@@ -1026,11 +1025,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'CZ-Remote-Node 13',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Brno', 'Prague']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Brno', 'Prague']),
       '5 hours ago',
       {
         title: (
@@ -1045,11 +1044,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'CZ-Remote-Node 14',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Brno', 'Prague']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Brno', 'Prague']),
       '30 minutes ago',
       {
         title: (
@@ -1064,11 +1063,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'CZ-Remote-Node 15',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Brno', 'Prague']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Brno', 'Prague']),
       '1 hour ago',
       {
         title: (
@@ -1083,11 +1082,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'CZ-Remote-Node 16',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Brno', 'Prague']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Brno', 'Prague']),
       '1 hour ago',
       {
         title: (
@@ -1102,11 +1101,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'CZ-Remote-Node 17',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Brno', 'Prague']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Brno', 'Prague']),
       '25 minutes ago',
       {
         title: (
@@ -1121,11 +1120,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'CZ-Remote-Node 18',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Brno', 'Prague']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Brno', 'Prague']),
       '20 minutes ago',
       {
         title: (
@@ -1140,11 +1139,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'Bangalore-Node 1',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Brno', 'Prague']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Brno', 'Prague']),
       '25 minutes ago',
       {
         title: (
@@ -1159,11 +1158,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'Bangalore-Node 2',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Brno', 'Prague']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Brno', 'Prague']),
       '2 hours ago',
       {
         title: (
@@ -1178,11 +1177,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'Bangalore-Node 3',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Brno', 'Prague']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Brno', 'Prague']),
       '10 minutes ago',
       {
         title: (
@@ -1197,11 +1196,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'Bangalore-Node 4',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Brno', 'Prague']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Brno', 'Prague']),
       '50 minutes ago',
       {
         title: (
@@ -1216,11 +1215,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'Bangalore-Node 5',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Brno', 'Prague']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Brno', 'Prague']),
       '3 hours ago',
       {
         title: (
@@ -1235,11 +1234,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'Bangalore-Node 6',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Brno', 'Prague']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Brno', 'Prague']),
       '2 hours ago',
       {
         title: (
@@ -1254,11 +1253,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'Bangalore-Node 7',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Brno', 'Prague']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Brno', 'Prague']),
       '5 hours ago',
       {
         title: (
@@ -1273,11 +1272,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'Bangalore-Node 8',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Brno', 'Prague']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Brno', 'Prague']),
       '30 minutes ago',
       {
         title: (
@@ -1292,11 +1291,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'Bangalore-Node 9',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Brno', 'Prague']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Brno', 'Prague']),
       '20 minutes ago',
       {
         title: (
@@ -1311,11 +1310,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'Bangalore-Node 10',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Brno', 'Prague']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Brno', 'Prague']),
       '1 hour ago',
       {
         title: (
@@ -1330,11 +1329,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'Bangalore-Node 11',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Brno', 'Prague']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Brno', 'Prague']),
       '40 minutes ago',
       {
         title: (
@@ -1349,11 +1348,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'Bangalore-Node 12',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Brno', 'Prague']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Brno', 'Prague']),
       '1 hour ago',
       {
         title: (
@@ -1368,11 +1367,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'Bangalore-Node 13',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Brno', 'Prague']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Brno', 'Prague']),
       '20 minutes ago',
       {
         title: (
@@ -1387,11 +1386,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'Bangalore-Node 14',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Brno', 'Prague']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Brno', 'Prague']),
       '4 hours ago',
       {
         title: (
@@ -1406,11 +1405,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'Bangalore-Node 15',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Brno', 'Prague']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Brno', 'Prague']),
       '2 hours ago',
       {
         title: (
@@ -1425,11 +1424,11 @@ export const rows: IRow[] = [
   {
     cells: [
       'Bangalore-Node 16',
-      random(1, 20),
-      random(1, 50),
-      random(1, 30),
-      sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
-      sample(['Brno', 'Prague']),
+      _.random(1, 20),
+      _.random(1, 50),
+      _.random(1, 30),
+      _.sample(['Stopped', 'Running', 'Down', 'Needs Maintenance']),
+      _.sample(['Brno', 'Prague']),
       '3 hours ago',
       {
         title: (
