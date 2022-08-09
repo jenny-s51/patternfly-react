@@ -1,2 +1,2 @@
 export * from './components';
-export * from './table-data';
+export * from './demos';

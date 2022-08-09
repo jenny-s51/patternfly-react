@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
-import React from 'react';
-import { ICell, IRow } from '../components/Table';
+import * as React from 'react';
+import { IRow, ICell } from '../components/Table';
 import _ from 'lodash';
 
 export const columns: (ICell | string)[] = [

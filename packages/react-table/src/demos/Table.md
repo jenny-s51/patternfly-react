@@ -26,7 +26,7 @@ import AngleRightIcon from '@patternfly/react-icons/dist/esm/icons/angle-right-i
 import BarsIcon from '@patternfly/react-icons/dist/esm/icons/bars-icon';
 import AttentionBellIcon from '@patternfly/react-icons/dist/esm/icons/attention-bell-icon';
 import DashboardWrapper from '@patternfly/react-core/src/demos/examples/DashboardWrapper';
-import { rows, columns } from '../table-data/Data.tsx'
+import { rows, columns } from './Data.tsx';
 
 ## Demos
 
@@ -347,8 +347,7 @@ import {
 } from '@patternfly/react-core';
 import { Table, TableHeader, TableBody } from '@patternfly/react-table';
 import DashboardWrapper from '@patternfly/react-core/src/demos/examples/DashboardWrapper';
-import {rows, columns} from '../table-data/Data.tsx'
-
+import { rows, columns } from './Data.tsx';
 class BulkSelectTableDemo extends React.Component {
   constructor(props) {
     super(props);
