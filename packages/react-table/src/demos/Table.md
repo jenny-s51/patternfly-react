@@ -111,8 +111,6 @@ class BulkSelectTableDemo extends React.Component {
           return post;
         });
 
-        console.log('what is this valu uhhhhhe', this.state.test);
-
         this.setState((prevState, props) => {
           return {
             selectedItems: prevState.selectedItems.concat(newRows)
@@ -194,32 +192,6 @@ class BulkSelectTableDemo extends React.Component {
       .then(() => this.updateSelected())
       .catch(err => this.setState({ error: err, loading: false }));
 
-    // const rows = this.state.res
-    // .map(post => ({
-    //   cells: [
-    //     post.servers,
-    //     post.threads,
-    //     post.applications,
-    //     post.workspaces,
-    //     post.status,
-    //     post.location,
-    //     post.lastModified,
-    //     {
-    //       title: (
-    //         <React.Fragment>
-    //           <a href="#">{post.url}</a>
-    //         </React.Fragment>
-    //       ),
-    //       props: { column: 'URL' }
-    //     }
-    //   ],
-    //   selected: post.selected
-    // }))
-    // .slice(0, this.state.perPage);
-
-    // this.setState({
-    //   rows: rows
-    // })
   }
 
   componentDidMount() {
@@ -315,33 +287,7 @@ class BulkSelectTableDemo extends React.Component {
 
   render() {
     const { loading, res, rows } = this.state;
-    // const rows = this.state.rows
-    //   .map(post => ({
-    //     cells: [
-    //       post.servers,
-    //       post.threads,
-    //       post.applications,
-    //       post.workspaces,
-    //       post.status,
-    //       post.location,
-    //       post.lastModified,
-    //       {
-    //         title: (
-    //           <React.Fragment>
-    //             <a href="#">{post.url}</a>
-    //           </React.Fragment>
-    //         ),
-    //         props: { column: 'URL' }
-    //       }
-    //     ],
-    //     selected: post.selected
-    //   }))
-    //   .slice(0, this.state.perPage);
 
-    // this.setState({ rows: test });
-
-    console.log('this is res', res);
-    console.log('this is rows', rows);
 
     return (
       <DashboardWrapper hasPageTemplateTitle>
