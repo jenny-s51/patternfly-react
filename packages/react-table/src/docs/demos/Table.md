@@ -26,7 +26,7 @@ import AngleRightIcon from '@patternfly/react-icons/dist/esm/icons/angle-right-i
 import BarsIcon from '@patternfly/react-icons/dist/esm/icons/bars-icon';
 import AttentionBellIcon from '@patternfly/react-icons/dist/esm/icons/attention-bell-icon';
 import DashboardWrapper from '@patternfly/react-core/src/demos/examples/DashboardWrapper';
-import { rows, columns } from './Data.tsx';
+import { rows, columns } from '../examples/Data.jsx';
 
 ## Demos
 
@@ -347,7 +347,8 @@ import {
 } from '@patternfly/react-core';
 import { Table, TableHeader, TableBody } from '@patternfly/react-table';
 import DashboardWrapper from '@patternfly/react-core/src/demos/examples/DashboardWrapper';
-import { rows, columns } from './Data.tsx';
+import { rows, columns } from '../examples/Data.jsx';
+
 class BulkSelectTableDemo extends React.Component {
   constructor(props) {
     super(props);
@@ -357,7 +358,7 @@ class BulkSelectTableDemo extends React.Component {
       page: 1,
       rows: [],
       error: null,
-      loading: true,
+      // loading: true,
       selectedItems: [],
       numSelected: 0,
       isDropDownOpen: false,
@@ -382,13 +383,16 @@ class BulkSelectTableDemo extends React.Component {
 
     this.updateSelected = () => {
       const { res, selectedItems } = this.state;
-      let rows = res.map(post => {
-        post.selected = selectedItems.includes(post.id);
+      let selectedRows = this.state.rows.map(post => {
+        post.selected = selectedItems.includes(post.cells[0]);
         return post;
       });
 
+      console.log("update selected", selectedRows);
+
       this.setState({
-        res: rows
+        res: selectedRows,
+        rows: selectedRows
       });
     };
 
@@ -404,7 +408,24 @@ class BulkSelectTableDemo extends React.Component {
         let newRows = [];
         let rows = this.state.res.map(post => {
           const isSelected = post.selected;
-          newRows = isSelected ? [...newRows] : [...newRows, post.id];
+          newRows = isSelected ? [...newRows] : [...newRows, post.cells[0]];
+          // console.log("location?", post.location);
+          console.log("use index", post.cells[0]);
+          post.selected = true;
+          return post;
+        });
+        this.setState((prevState, props) => {
+          return {
+            selectedItems: prevState.selectedItems.concat(newRows)
+          };
+        });
+      } else {
+         let newRows = [];
+         newRows = this.state.res.map(post => {
+          const isSelected = post.selected;
+          newRows = [...newRows];
+          // console.log("location?", post.location);
+          console.log("use index", post.cells[0]);
           post.selected = true;
           return post;
         });
@@ -413,17 +434,18 @@ class BulkSelectTableDemo extends React.Component {
           return {
             selectedItems: prevState.selectedItems.concat(newRows)
           };
-        }, this.updateSelected);
-      } else {
-        let newRows = [];
-        for (var i = 1; i <= 100; i++) newRows = [...newRows, i];
+        });
+        // let newRows = [];
+        // for (var i = 1; i <= 75; i++) newRows = [...newRows, cells[0]];
 
-        this.setState(
-          {
-            selectedItems: newRows
-          },
-          this.updateSelected
-        );
+        // console.log('newrows', newRows);
+
+        // this.setState(
+        //   {
+        //     selectedItems: newRows
+        //   },
+        //   this.updateSelected
+        // );
       }
     };
 
@@ -447,7 +469,7 @@ class BulkSelectTableDemo extends React.Component {
       
     this.setState({
       page: newPage,
-      rows: this.state.res.slice(startIdx, endIdx)
+      res: rows.slice(startIdx, endIdx)
     });
   }
 
@@ -455,7 +477,7 @@ class BulkSelectTableDemo extends React.Component {
     this.setState({
       perPage: newPerPage,
       page: newPage,
-      rows: this.state.res.slice(startIdx, endIdx)
+      rows: rows.slice(startIdx, endIdx)
     });
   }
   }
@@ -475,15 +497,25 @@ class BulkSelectTableDemo extends React.Component {
   // }
 
     componentDidMount() {
-    this.testFetchData();
+      const paginatedRows = rows.slice(0, this.state.perPage);
+
+    const rowsWithSelectFlag = rows.map(post => ({
+      cells: post,
+      // cells[selected]: post.selected
+    }));
+
+console.log("with select!", rowsWithSelectFlag)
+    this.setState({res: paginatedRows, rows});
   }
+
+
 
   renderPagination(variant) {
     const { page, perPage } = this.state;
     return (
       <Pagination
         isCompact
-        itemCount={this.state.res.length}
+        itemCount={rows.length}
         page={page}
         perPage={perPage}
         onSetPage={this.handleSetPage}
@@ -505,7 +537,7 @@ class BulkSelectTableDemo extends React.Component {
   buildSelectDropdown() {
     const { isDropDownOpen, selectedItems } = this.state;
     const numSelected = selectedItems.length;
-    const allSelected = numSelected === 100;
+    const allSelected = numSelected === 75;
     const anySelected = numSelected > 0;
     const someChecked = anySelected ? null : false;
     const isChecked = allSelected ? true : someChecked;
@@ -515,10 +547,10 @@ class BulkSelectTableDemo extends React.Component {
         Select none (0 items)
       </DropdownItem>,
       <DropdownItem key="item-2" onClick={() => this.handleSelectClick('page')}>
-        Select page ({this.state.perPage} items)
+        Select page ({this.state.res.length} items)
       </DropdownItem>,
       <DropdownItem key="item-3" onClick={() => this.handleSelectClick('all')}>
-        Select all (100 items)
+        Select all (75 items)
       </DropdownItem>
     ];
 
@@ -566,11 +598,15 @@ class BulkSelectTableDemo extends React.Component {
   }
 
   render() {
-    const { loading, res } = this.state;
+    const { loading, res, selectedItems } = this.state;
 
-    console.log("RES???", res);
-    console.log("rows???", rows);
-    console.log("what is test", rows);
+
+
+    const rows = res;
+
+console.log("selected items", selectedItems)
+console.log("rows", rows);
+console.log("res", res)
 
 
     return (

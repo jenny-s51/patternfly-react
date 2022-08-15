@@ -1,9 +1,8 @@
 /* eslint-disable no-console */
 import * as React from 'react';
-import { IRow, ICell } from '../components/Table';
 import _ from 'lodash';
 
-export const columns: (ICell | string)[] = [
+export const columns = [
   { title: 'Servers' },
   { title: 'Threads' },
   { title: 'Applications' },
@@ -14,7 +13,7 @@ export const columns: (ICell | string)[] = [
   { title: 'URL' }
 ];
 
-export const rows: IRow[] = [
+export const rows = [
   {
     cells: [
       'US-Node 1',
