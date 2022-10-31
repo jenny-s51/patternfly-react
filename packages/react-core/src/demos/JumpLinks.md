@@ -85,7 +85,11 @@ ScrollspyH2 = () => {
                 isExpanded
               >
                 {headings.map(i => (
-                  <JumpLinksItem key={i} href={`#heading-${i}`}>
+                  <JumpLinksItem
+                    key={i}
+                    href={`#heading-${i}`}
+                    onClick={(e) => e.preventDefault()}
+                  >
                     {`Heading ${i}`}
                     <JumpLinksList></JumpLinksList>
                   </JumpLinksItem>
@@ -131,7 +135,6 @@ ScrollspyH2 = () => {
   );
 };
 ```
-
 
 ### With drawer
 

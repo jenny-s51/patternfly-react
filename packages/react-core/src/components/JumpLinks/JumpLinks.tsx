@@ -159,7 +159,7 @@ export const JumpLinks: React.FunctionComponent<JumpLinksProps> = ({
       ? children
       : React.Children.map(children, (child: any) => {
           if (child.type === JumpLinksItem) {
-            const { onClick: onClickProp, isActive: isActiveProp } = child.props;
+            const { onClick: onClickProp, isActive: isActiveProp, href: hrefProp } = child.props;
             const itemIndex = jumpLinkIndex++;
             const scrollItem = scrollItems[itemIndex];
             return React.cloneElement(child as React.ReactElement<JumpLinksItemProps>, {
@@ -194,14 +194,30 @@ export const JumpLinks: React.FunctionComponent<JumpLinksProps> = ({
                     scrollableElement.scrollTo(0, newScrollItem.offsetTop - offset);
                   }
                   newScrollItem.focus();
-                  ev.preventDefault();
                   setActiveIndex(itemIndex);
+                  // ev.preventDefault();
+                  // console.log('child node', child.props.node);
+                  // console.log('child href', child.props.href);
+                  // console.log('href prop', hrefProp);
+                  // if (hrefProp) {
+                  //   console.log('href prop heeeeeheheee', hrefProp);
+                  //   console.log(scrollItems.map(item => item.id));
+                  //   // eslint-disable-next-line no-console
+                  //   const i = scrollItems.map(item => `#${item.id}`).indexOf(hrefProp);
+                  //   setActiveIndex(i);
+                  // }
+                  // setActiveIndex(itemIndex);
                 }
-                if (onClickProp) {
+                // eslint-disable-next-line no-console
+
+                if (onClickProp && !hrefProp) {
                   onClickProp(ev);
                 }
               },
-              isActive: isActiveProp || activeIndex === itemIndex,
+              isActive: hrefProp
+                ? window.location.href.endsWith(child.props.href)
+                : isActiveProp || activeIndex === itemIndex,
+              href: hrefProp,
               children: cloneChildren(child.props.children)
             });
           } else if (child.type === React.Fragment) {
