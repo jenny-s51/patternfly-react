@@ -48,6 +48,10 @@ export interface ApplicationLauncherProps extends React.HTMLProps<HTMLDivElement
   onFavorite?: (itemId: string, isFavorite: boolean) => void;
   /** Enables search. Callback called when text input is entered into search box */
   onSearch?: (textInput: string) => void;
+  /** @hide A callback for when the search input value for changes.  To be used when isSearchable is true. */
+  onSearchInputChanged?: (value: string, event: React.FormEvent<HTMLInputElement>) => void;
+  /** @hide Callback for search input clear button */
+  onSearchInputClear?: (event: React.SyntheticEvent<HTMLButtonElement>) => void;
   /** Placeholder text for search input */
   searchPlaceholderText?: string;
   /** Text for search input when no results are found */
@@ -62,41 +66,61 @@ export interface ApplicationLauncherProps extends React.HTMLProps<HTMLDivElement
   removeFindDomNode?: boolean;
 }
 
-export class ApplicationLauncher extends React.Component<ApplicationLauncherProps> {
-  static displayName = 'ApplicationLauncher';
-  static defaultProps: ApplicationLauncherProps = {
-    className: '',
-    isDisabled: false,
-    direction: DropdownDirection.down,
-    favorites: [] as string[],
-    items: [] as React.ReactNode[],
-    isOpen: false,
-    position: DropdownPosition.left,
-    /* eslint-disable @typescript-eslint/no-unused-vars */
-    onSelect: (_event: any): any => undefined,
-    onToggle: (_value: boolean): any => undefined,
-    /* eslint-enable @typescript-eslint/no-unused-vars */
-    'aria-label': 'Application launcher',
-    isGrouped: false,
-    toggleIcon: <ThIcon />,
-    searchPlaceholderText: 'Filter by name...',
-    searchNoResultsText: 'No results found',
-    favoritesLabel: 'Favorites',
-    menuAppendTo: 'inline',
-    removeFindDomNode: false
-  };
+export const ApplicationLauncher: React.FunctionComponent<ApplicationLauncherProps> = ({
+  className = '',
+  isDisabled = false,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  direction = DropdownDirection.down,
+  favorites = [] as string[],
+  items = [] as React.ReactNode[],
+  isOpen = false,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  position = DropdownPosition.left,
+  /* eslint-disable @typescript-eslint/no-unused-vars */
+  onSelect = (_event: any): any => undefined,
+  onToggle = (_value: boolean): any => undefined,
+  /* eslint-enable @typescript-eslint/no-unused-vars */
+  'aria-label': ariaLabel = 'Application launcher',
+  isGrouped = false,
+  toggleIcon = <ThIcon />,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  searchPlaceholderText = 'Filter by name...',
+  searchNoResultsText = 'No results found',
+  favoritesLabel = 'Favorites',
+  menuAppendTo = 'inline',
+  removeFindDomNode = false,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  ref,
+  toggleId,
+  onFavorite,
+  onSearch,
+  ...props
+}: ApplicationLauncherProps) => {
+  const [value, setValue] = React.useState('');
+  const [allItems] = React.useState(items);
+  let renderableItems: React.ReactNode[] = [];
 
-  createSearchBox = () => {
-    const { onSearch, searchPlaceholderText, searchProps } = this.props;
+  const createSearchBox = () => {
+    const { searchProps } = props;
+
+    const onClear = () => {
+      setValue('');
+    };
 
     return (
       <div key="search" className={css(styles.appLauncherMenuSearch)}>
         <ApplicationLauncherItem
           customChild={
             <SearchInput
-              type="search"
+              value={value}
+              // eslint-disable-next-line no-console
+              onClear={onClear}
+              // type="search"
               placeholder={searchPlaceholderText}
-              onChange={value => onSearch(value)}
+              onChange={value => {
+                onSearch(value);
+                setValue(value);
+              }}
               {...searchProps}
             />
           }
@@ -105,107 +129,88 @@ export class ApplicationLauncher extends React.Component<ApplicationLauncherProp
     );
   };
 
-  render() {
-    const {
-      'aria-label': ariaLabel,
-      isOpen,
-      onToggle,
-      toggleIcon,
-      toggleId,
-      onSelect,
-      isDisabled,
-      className,
-      isGrouped,
-      favorites,
-      onFavorite,
-      onSearch,
-      items,
-      /* eslint-disable @typescript-eslint/no-unused-vars */
-      searchPlaceholderText,
-      searchProps,
-      ref,
-      /* eslint-enable @typescript-eslint/no-unused-vars */
-      favoritesLabel,
-      searchNoResultsText,
-      menuAppendTo,
-      removeFindDomNode,
-      ...props
-    } = this.props;
-    let renderableItems: React.ReactNode[] = [];
-
-    if (onFavorite) {
-      let favoritesGroup: React.ReactNode[] = [];
-      let renderableFavorites: React.ReactNode[] = [];
-      if (favorites.length > 0) {
-        renderableFavorites = createRenderableFavorites(items, isGrouped, favorites, true);
-        favoritesGroup = [
-          <ApplicationLauncherGroup key="favorites" label={favoritesLabel}>
-            {renderableFavorites}
-            <ApplicationLauncherSeparator key="separator" />
-          </ApplicationLauncherGroup>
-        ];
-      }
-      if (renderableFavorites.length > 0) {
-        renderableItems = favoritesGroup.concat(extendItemsWithFavorite(items, isGrouped, favorites));
-      } else {
-        renderableItems = extendItemsWithFavorite(items, isGrouped, favorites);
-      }
-    } else {
-      renderableItems = items;
-    }
-
-    if (items.length === 0) {
-      renderableItems = [
-        <ApplicationLauncherGroup key="no-results-group">
-          <ApplicationLauncherItem key="no-results">{searchNoResultsText}</ApplicationLauncherItem>
+  if (onFavorite) {
+    let favoritesGroup: React.ReactNode[] = [];
+    let renderableFavorites: React.ReactNode[] = [];
+    if (favorites.length > 0) {
+      renderableFavorites = createRenderableFavorites(items, isGrouped, favorites, true);
+      favoritesGroup = [
+        <ApplicationLauncherGroup key="favorites" label={favoritesLabel}>
+          {renderableFavorites}
+          <ApplicationLauncherSeparator key="separator" />
         </ApplicationLauncherGroup>
       ];
     }
-    if (onSearch) {
-      renderableItems = [this.createSearchBox(), ...renderableItems];
+    if (renderableFavorites.length > 0) {
+      renderableItems = favoritesGroup.concat(extendItemsWithFavorite(items, isGrouped, favorites));
+    } else {
+      renderableItems = extendItemsWithFavorite(items, isGrouped, favorites);
     }
-
-    return (
-      <ApplicationLauncherContext.Provider value={{ onFavorite }}>
-        <DropdownContext.Provider
-          value={{
-            onSelect,
-            menuClass: styles.appLauncherMenu,
-            itemClass: styles.appLauncherMenuItem,
-            toggleClass: styles.appLauncherToggle,
-            baseClass: styles.appLauncher,
-            baseComponent: 'nav',
-            sectionClass: styles.appLauncherGroup,
-            sectionTitleClass: styles.appLauncherGroupTitle,
-            sectionComponent: 'section',
-            disabledClass: styles.modifiers.disabled,
-            ouiaComponentType: ApplicationLauncher.displayName
-          }}
-        >
-          <DropdownWithContext
-            {...props}
-            dropdownItems={renderableItems}
-            isOpen={isOpen}
-            className={className}
-            aria-label={ariaLabel}
-            menuAppendTo={menuAppendTo}
-            removeFindDomNode={removeFindDomNode}
-            toggle={
-              <DropdownToggle
-                id={toggleId}
-                toggleIndicator={null}
-                isOpen={isOpen}
-                onToggle={onToggle}
-                isDisabled={isDisabled}
-                aria-label={ariaLabel}
-              >
-                {toggleIcon}
-              </DropdownToggle>
-            }
-            isGrouped={isGrouped}
-          />
-        </DropdownContext.Provider>
-      </ApplicationLauncherContext.Provider>
-    );
+  } else {
+    renderableItems = items;
   }
-}
+
+  if (items.length === 0) {
+    value === ''
+      ? (renderableItems = allItems)
+      : (renderableItems = [
+          <ApplicationLauncherGroup key="no-results-group">
+            <ApplicationLauncherItem key="no-results">{searchNoResultsText}</ApplicationLauncherItem>
+          </ApplicationLauncherGroup>
+        ]);
+  }
+  if (onSearch) {
+    renderableItems = [createSearchBox(), ...renderableItems];
+  }
+
+  const onKeyDown = (event: React.KeyboardEvent<any>) => {
+    if (event.key === 'Tab' && isOpen && value) {
+      event.stopPropagation();
+    }
+  };
+
+  return (
+    <ApplicationLauncherContext.Provider value={{ onFavorite }}>
+      <DropdownContext.Provider
+        value={{
+          onSelect,
+          menuClass: styles.appLauncherMenu,
+          itemClass: styles.appLauncherMenuItem,
+          toggleClass: styles.appLauncherToggle,
+          baseClass: styles.appLauncher,
+          baseComponent: 'nav',
+          sectionClass: styles.appLauncherGroup,
+          sectionTitleClass: styles.appLauncherGroupTitle,
+          sectionComponent: 'section',
+          disabledClass: styles.modifiers.disabled,
+          ouiaComponentType: ApplicationLauncher.displayName
+        }}
+      >
+        <DropdownWithContext
+          {...props}
+          dropdownItems={renderableItems}
+          isOpen={isOpen}
+          onKeyDown={onKeyDown}
+          className={className}
+          aria-label={ariaLabel}
+          menuAppendTo={menuAppendTo}
+          removeFindDomNode={removeFindDomNode}
+          toggle={
+            <DropdownToggle
+              id={toggleId}
+              toggleIndicator={null}
+              isOpen={isOpen}
+              onToggle={onToggle}
+              isDisabled={isDisabled}
+              aria-label={ariaLabel}
+            >
+              {toggleIcon}
+            </DropdownToggle>
+          }
+          isGrouped={isGrouped}
+        />
+      </DropdownContext.Provider>
+    </ApplicationLauncherContext.Provider>
+  );
+};
+ApplicationLauncher.displayName = 'ApplicationLauncher';
