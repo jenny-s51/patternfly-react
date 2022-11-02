@@ -28,12 +28,11 @@ test('sets correct svgPath', () => {
   ).toHaveAttribute('d', iconDef.svgPath);
 });
 
-test('height and width are set from size', () => {
+test('sets correct class', () => {
   render(<SVGIcon size={IconSize.sm} />);
 
   const svg = screen.getByRole('img', { hidden: true });
-  expect(svg).toHaveAttribute('width', '1em');
-  expect(svg).toHaveAttribute('height', '1em');
+  expect(svg).toHaveClass('pf-svg-size-sm');
 });
 
 test('aria-hidden is true if no title is specified', () => {

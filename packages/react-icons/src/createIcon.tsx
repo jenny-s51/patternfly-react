@@ -1,4 +1,5 @@
 import * as React from 'react';
+// import '@patternfly/patternfly/base/patternfly-icons.scss';
 
 export enum IconSize {
   sm = 'sm',
@@ -7,18 +8,18 @@ export enum IconSize {
   xl = 'xl'
 }
 
-export const getSize = (size: IconSize | keyof typeof IconSize) => {
+export const getSizeClass = (size: IconSize | keyof typeof IconSize) => {
   switch (size) {
     case IconSize.sm:
-      return '1em';
+      return 'pf-svg-size-sm';
     case IconSize.md:
-      return '1.5em';
+      return 'pf-svg-size-md';
     case IconSize.lg:
-      return '2em';
+      return 'pf-svg-size-lg';
     case IconSize.xl:
-      return '3em';
+      return 'pf-svg-size-xl';
     default:
-      return '1em';
+      return 'pf-svg-size-sm';
   }
 };
 
@@ -62,20 +63,16 @@ export function createIcon({
     id = `icon-title-${currentId++}`;
 
     render() {
-      const { size, color, title, noVerticalAlign, ...props } = this.props;
+      const { size, color, title, className, ...props } = this.props;
 
       const hasTitle = Boolean(title);
-      const heightWidth = getSize(size);
-      const baseAlign = -0.125 * Number.parseFloat(heightWidth);
-      const style = noVerticalAlign ? null : { verticalAlign: `${baseAlign}em` };
       const viewBox = [xOffset, yOffset, width, height].join(' ');
+      const classes: String[] = [className, getSizeClass(size)].filter(t => t);
 
       return (
         <svg
-          style={style}
+          className={classes.length > 0 ? classes.join(' ') : undefined}
           fill={color}
-          height={heightWidth}
-          width={heightWidth}
           viewBox={viewBox}
           aria-labelledby={hasTitle ? this.id : null}
           aria-hidden={hasTitle ? null : true}
