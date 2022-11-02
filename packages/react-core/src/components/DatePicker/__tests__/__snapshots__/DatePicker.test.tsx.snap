@@ -65,8 +65,17 @@ exports[`With popover opened 1`] = `
           <div
             class="pf-c-calendar-month"
           >
+<<<<<<< HEAD
             <div
               class="pf-c-calendar-month__header"
+=======
+            <svg
+              aria-hidden="true"
+              class="pf-svg-size-sm"
+              fill="currentColor"
+              role="img"
+              viewBox="0 0 448 512"
+>>>>>>> d64eb49de (update snapshots)
             >
               <div
                 class="pf-c-calendar-month__header-nav-control pf-m-prev-month"
