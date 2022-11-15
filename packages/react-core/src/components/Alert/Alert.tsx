@@ -144,13 +144,13 @@ export const Alert: React.FunctionComponent<AlertProps> = ({
   const [isMouseOver, setIsMouseOver] = useState<boolean | undefined>();
   const [containsFocus, setContainsFocus] = useState<boolean | undefined>();
   const dismissed = timedOut && timedOutAnimation && !isMouseOver && !containsFocus;
+  const timer = timeout === true ? 8000 : Number(timeout);
   React.useEffect(() => {
-    timeout = timeout === true ? 8000 : Number(timeout);
-    if (timeout > 0) {
-      const timer = setTimeout(() => setTimedOut(true), timeout);
-      return () => clearTimeout(timer);
+    if (timer > 0) {
+      const t = setTimeout(() => setTimedOut(true), timer);
+      return () => clearTimeout(t);
     }
-  }, []);
+  }, [timer]);
   React.useEffect(() => {
     const onDocumentFocus = () => {
       if (divRef.current) {
@@ -167,15 +167,14 @@ export const Alert: React.FunctionComponent<AlertProps> = ({
 
     return () => document.removeEventListener('focus', onDocumentFocus, true);
   }, [containsFocus]);
+
   React.useEffect(() => {
     if (containsFocus === false || isMouseOver === false) {
-      const timer = setTimeout(() => setTimedOutAnimation(true), timeoutAnimation);
-      return () => clearTimeout(timer);
+      const t = setTimeout(() => setTimedOutAnimation(true), timeoutAnimation);
+      // setTimeout(() => onTimeout(), timer);
+      return () => clearTimeout(t);
     }
-  }, [containsFocus, isMouseOver]);
-  React.useEffect(() => {
-    dismissed && onTimeout();
-  }, [dismissed]);
+  }, [containsFocus, isMouseOver, timeoutAnimation]);
 
   const [isExpanded, setIsExpanded] = useState(false);
   const onToggleExpand = () => {
@@ -192,6 +191,13 @@ export const Alert: React.FunctionComponent<AlertProps> = ({
     setIsMouseOver(false);
     onMouseLeave(ev);
   };
+
+  if (timer) {
+    setTimeout(() => onTimeout(), timer);
+    if (dismissed) {
+      return null;
+    }
+  }
 
   if (dismissed) {
     return null;
