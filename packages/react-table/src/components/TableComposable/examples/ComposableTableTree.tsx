@@ -92,16 +92,19 @@ export const ComposableTableTree: React.FunctionComponent = () => {
     [node].concat(...(node.children ? node.children.map(getDescendants) : []));
   const areAllDescendantsSelected = (node: RepositoriesTreeNode) =>
     getDescendants(node).every(n => selectedNodeNames.includes(n.name));
-  const areSomeDescendantsSelected = (node: RepositoriesTreeNode) =>
-    getDescendants(node).some(n => selectedNodeNames.includes(n.name));
+  // const areSomeDescendantsSelected = (node: RepositoriesTreeNode) =>
+  //   getDescendants(node).some(n => selectedNodeNames.includes(n.name));
 
   const isNodeChecked = (node: RepositoriesTreeNode) => {
+    // console.log('NODE', node);
+    // eslint-disable-next-line no-console
+    // console.log('GET DESCENDENTS', getDescendants(node));
     if (areAllDescendantsSelected(node)) {
       return true;
     }
-    if (areSomeDescendantsSelected(node)) {
-      return null;
-    }
+    // if (areSomeDescendantsSelected(node)) {
+    //   return null;
+    // }
     return false;
   };
 
@@ -131,7 +134,6 @@ export const ComposableTableTree: React.FunctionComponent = () => {
     if (node.children) {
       icon = isExpanded ? <FolderOpenIcon aria-hidden /> : <FolderIcon aria-hidden />;
     }
-
     const treeRow: TdProps['treeRow'] = {
       onCollapse: () =>
         setExpandedNodeNames(prevExpanded => {
@@ -143,12 +145,42 @@ export const ComposableTableTree: React.FunctionComponent = () => {
           const otherDetailsExpandedNodeNames = prevDetailsExpanded.filter(name => name !== node.name);
           return isDetailsExpanded ? otherDetailsExpandedNodeNames : [...otherDetailsExpandedNodeNames, node.name];
         }),
-      onCheckChange: (_event, isChecking) => {
-        const nodeNamesToCheck = getDescendants(node).map(n => n.name);
-        setSelectedNodeNames(prevSelected => {
-          const otherSelectedNodeNames = prevSelected.filter(name => !nodeNamesToCheck.includes(name));
-          return !isChecking ? otherSelectedNodeNames : [...otherSelectedNodeNames, ...nodeNamesToCheck];
-        });
+      onCheckChange: (_event, isChecking, rowIndex, title, _rowData) => {
+        // eslint-disable-next-line no-console
+        // console.log('rowIndex', rowIndex);
+        // eslint-disable-next-line no-console
+        // console.log('title', title);
+        // eslint-disable-next-line no-console
+        // console.log('rowData', rowData);
+        // const nodeNamesToCheck = getDescendants(node).map(n => n.name);
+        // setSelectedNodeNames(prevSelected => {
+        // const otherSelectedNodeNames = selectedNodeNames.filter(title => !selectedNodeNames.includes(title));
+        //   return !isChecking ? otherSelectedNodeNames : [...otherSelectedNodeNames, ...nodeNamesToCheck];
+        // });
+        // setSelectedNodeNames([title as string, ...otherSelectedNodeNames]);
+
+        // eslint-disable-next-line no-console
+        console.log('NODE', node);
+
+        // eslint-disable-next-line no-console
+        console.log('GET DES', getDescendants(node));
+
+        // eslint-disable-next-line no-console
+        console.log(node.children);
+
+        if (!selectedNodeNames.includes(title as string)) {
+          // checking whether array contain the id
+          setSelectedNodeNames([...selectedNodeNames, title as string]); // adding to array because value doesnt exists
+        } else {
+          setSelectedNodeNames(selectedNodeNames.filter(title => title !== node.name)); // deleting
+        }
+        // eslint-disable-next-line no-console
+        console.log('them namesssss', selectedNodeNames);
+
+        // const testSet = new Set(selectedNodeNames);
+
+        // eslint-disable-next-line no-console
+        // console.log('testSet', testSet);
       },
       rowIndex,
       props: {
@@ -163,6 +195,9 @@ export const ComposableTableTree: React.FunctionComponent = () => {
         icon
       }
     };
+
+    // eslint-disable-next-line no-console
+    console.log('selectedNodeNames', selectedNodeNames);
 
     const childRows =
       node.children && node.children.length
