@@ -15,6 +15,7 @@ exports[`copy button render 1`] = `
       data-ouia-safe="true"
       id="my-id"
       type="button"
+    >
       <svg
         aria-hidden="true"
         class="pf-svg-size-sm"

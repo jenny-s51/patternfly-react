@@ -34,6 +34,7 @@ exports[`ClipboardCopy should match snapshot (auto-generated) 1`] = `
           data-ouia-safe="true"
           id="copy-button-0"
           type="button"
+        >
           <svg
             aria-hidden="true"
             class="pf-svg-size-sm"

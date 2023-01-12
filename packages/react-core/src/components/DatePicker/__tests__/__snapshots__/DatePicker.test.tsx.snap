@@ -32,6 +32,7 @@ exports[`disabled date picker 1`] = `
             class="pf-c-button pf-m-control"
             disabled=""
             type="button"
+          >
             <svg
               aria-hidden="true"
               class="pf-svg-size-sm"
