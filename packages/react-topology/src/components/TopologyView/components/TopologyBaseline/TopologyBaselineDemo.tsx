@@ -158,3 +158,4 @@ export const TopologyBaselineDemo: React.FC = () => {
     </VisualizationProvider>
   );
 };
+TopologyBaselineDemo.displayName = 'TopologyBaselineDemo';

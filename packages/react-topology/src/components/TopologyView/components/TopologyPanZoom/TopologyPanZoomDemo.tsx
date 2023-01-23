@@ -19,8 +19,7 @@ import {
   Visualization,
   VisualizationProvider,
   VisualizationSurface,
-  withSelection,
-  WithSelectionProps
+  withPanZoom
 } from '@patternfly/react-topology';
 import { ComponentFactory, Graph, Layout, LayoutFactory, Model, Node, NodeStatus } from '@patternfly/react-topology';
 
@@ -43,7 +42,7 @@ const BadgeColors = [
   }
 ];
 
-const CustomNode: React.FC<CustomNodeProps & WithSelectionProps> = ({ element, onSelect, selected }) => {
+const CustomNode: React.FC<CustomNodeProps> = ({ element }) => {
   const data = element.getData();
   const Icon = data.alternate ? Icon2 : Icon1;
   const badgeColors = BadgeColors.find(badgeColor => badgeColor.name === data.badge);
@@ -56,8 +55,6 @@ const CustomNode: React.FC<CustomNodeProps & WithSelectionProps> = ({ element, o
       badgeColor={badgeColors?.badgeColor}
       badgeTextColor={badgeColors?.badgeTextColor}
       badgeBorderColor={badgeColors?.badgeBorderColor}
-      onSelect={onSelect}
-      selected={selected}
     >
       <g transform={`translate(25, 25)`}>
         <Icon style={{ color: '#393F44' }} width={25} height={25} />
@@ -82,11 +79,11 @@ const customComponentFactory: ComponentFactory = (kind: ModelKind, type: string)
     default:
       switch (kind) {
         case ModelKind.graph:
-          return GraphComponent;
+          return withPanZoom()(GraphComponent);
         case ModelKind.node:
-          return withSelection()(CustomNode);
+          return CustomNode;
         case ModelKind.edge:
-          return withSelection()(DefaultEdge);
+          return DefaultEdge;
         default:
           return undefined;
       }
@@ -202,7 +199,7 @@ const EDGES = [
   }
 ];
 
-export const TopologySelectableDemo: React.FC = () => {
+export const TopologyPanZoomDemo: React.FC = () => {
   const [selectedIds, setSelectedIds] = React.useState<string[]>([]);
 
   const controller = React.useMemo(() => {
@@ -233,3 +230,4 @@ export const TopologySelectableDemo: React.FC = () => {
     </VisualizationProvider>
   );
 };
+TopologyPanZoomDemo.displayName = 'TopologyPanZoomDemo';
