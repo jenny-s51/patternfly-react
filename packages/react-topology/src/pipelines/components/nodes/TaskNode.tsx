@@ -85,7 +85,7 @@ export interface TaskNodeProps {
   disableTooltip?: boolean;
   /** Tooltip to show on node hover */
   toolTip?: React.ReactNode;
-  /** Falg if the node has a 'when expression' */
+  /** Flag if the node has a 'when expression' */
   hasWhenExpression?: boolean;
   /** Size of the when expression indicator */
   whenSize?: number;
@@ -97,7 +97,7 @@ export interface TaskNodeProps {
   actionIconClassName?: string;
   /** Callback when the action icon is clicked */
   onActionIconClick?: (e: React.MouseEvent) => void;
-  /** Flag if the element selected. Part of WithSelectionProps */
+  /** Flag if the element is selected. Part of WithSelectionProps */
   selected?: boolean;
   /** Function to call when the element should become selected (or deselected). Part of WithSelectionProps */
   onSelect?: OnSelect;
