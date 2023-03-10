@@ -10,7 +10,7 @@ exports[`MultipleFileUploadStatusItem renders custom aria labels 1`] = `
     >
       <svg
         aria-hidden="true"
-        class="pf-svg-size-sm"
+        class="pf-svg"
         fill="currentColor"
         role="img"
         viewBox="0 0 384 512"
@@ -97,7 +97,7 @@ exports[`MultipleFileUploadStatusItem renders custom aria labels 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="pf-svg-size-sm"
+          class="pf-svg"
           fill="currentColor"
           role="img"
           viewBox="0 0 512 512"
@@ -122,7 +122,7 @@ exports[`MultipleFileUploadStatusItem renders custom class names 1`] = `
     >
       <svg
         aria-hidden="true"
-        class="pf-svg-size-sm"
+        class="pf-svg"
         fill="currentColor"
         role="img"
         viewBox="0 0 384 512"
@@ -206,7 +206,7 @@ exports[`MultipleFileUploadStatusItem renders custom class names 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="pf-svg-size-sm"
+          class="pf-svg"
           fill="currentColor"
           role="img"
           viewBox="0 0 512 512"
@@ -231,7 +231,7 @@ exports[`MultipleFileUploadStatusItem renders custom file name/size/icon/progres
     >
       <svg
         aria-hidden="true"
-        class="pf-svg-size-sm"
+        class="pf-svg"
         fill="currentColor"
         role="img"
         viewBox="0 0 384 512"
@@ -317,7 +317,7 @@ exports[`MultipleFileUploadStatusItem renders custom file name/size/icon/progres
       >
         <svg
           aria-hidden="true"
-          class="pf-svg-size-sm"
+          class="pf-svg"
           fill="currentColor"
           role="img"
           viewBox="0 0 512 512"
@@ -342,7 +342,7 @@ exports[`MultipleFileUploadStatusItem renders custom function progressAriaLiveMe
     >
       <svg
         aria-hidden="true"
-        class="pf-svg-size-sm"
+        class="pf-svg"
         fill="currentColor"
         role="img"
         viewBox="0 0 384 512"
@@ -428,7 +428,7 @@ exports[`MultipleFileUploadStatusItem renders custom function progressAriaLiveMe
       >
         <svg
           aria-hidden="true"
-          class="pf-svg-size-sm"
+          class="pf-svg"
           fill="currentColor"
           role="img"
           viewBox="0 0 512 512"
@@ -453,7 +453,7 @@ exports[`MultipleFileUploadStatusItem renders custom progress value/variant when
     >
       <svg
         aria-hidden="true"
-        class="pf-svg-size-sm"
+        class="pf-svg"
         fill="currentColor"
         role="img"
         viewBox="0 0 384 512"
@@ -510,7 +510,7 @@ exports[`MultipleFileUploadStatusItem renders custom progress value/variant when
           >
             <svg
               aria-hidden="true"
-              class="pf-svg-size-sm"
+              class="pf-svg"
               fill="currentColor"
               role="img"
               viewBox="0 0 576 512"
@@ -554,7 +554,7 @@ exports[`MultipleFileUploadStatusItem renders custom progress value/variant when
       >
         <svg
           aria-hidden="true"
-          class="pf-svg-size-sm"
+          class="pf-svg"
           fill="currentColor"
           role="img"
           viewBox="0 0 512 512"
@@ -579,7 +579,7 @@ exports[`MultipleFileUploadStatusItem renders expected values from a passed file
     >
       <svg
         aria-hidden="true"
-        class="pf-svg-size-sm"
+        class="pf-svg"
         fill="currentColor"
         role="img"
         viewBox="0 0 384 512"
@@ -665,7 +665,7 @@ exports[`MultipleFileUploadStatusItem renders expected values from a passed file
       >
         <svg
           aria-hidden="true"
-          class="pf-svg-size-sm"
+          class="pf-svg"
           fill="currentColor"
           role="img"
           viewBox="0 0 512 512"
@@ -690,7 +690,7 @@ exports[`MultipleFileUploadStatusItem renders with expected class names 1`] = `
     >
       <svg
         aria-hidden="true"
-        class="pf-svg-size-sm"
+        class="pf-svg"
         fill="currentColor"
         role="img"
         viewBox="0 0 384 512"
@@ -774,7 +774,7 @@ exports[`MultipleFileUploadStatusItem renders with expected class names 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="pf-svg-size-sm"
+          class="pf-svg"
           fill="currentColor"
           role="img"
           viewBox="0 0 512 512"
@@ -799,7 +799,7 @@ exports[`MultipleFileUploadStatusItem rendersdefault progressAriaLiveMessage whe
     >
       <svg
         aria-hidden="true"
-        class="pf-svg-size-sm"
+        class="pf-svg"
         fill="currentColor"
         role="img"
         viewBox="0 0 384 512"
@@ -885,7 +885,7 @@ exports[`MultipleFileUploadStatusItem rendersdefault progressAriaLiveMessage whe
       >
         <svg
           aria-hidden="true"
-          class="pf-svg-size-sm"
+          class="pf-svg"
           fill="currentColor"
           role="img"
           viewBox="0 0 512 512"

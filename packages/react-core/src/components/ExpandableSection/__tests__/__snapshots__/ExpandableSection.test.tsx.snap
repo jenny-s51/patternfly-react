@@ -26,7 +26,7 @@ exports[`Detached ExpandableSection renders successfully 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="pf-svg-size-sm"
+          class="pf-svg"
           fill="currentColor"
           role="img"
           viewBox="0 0 256 512"
@@ -60,7 +60,7 @@ exports[`Disclosure ExpandableSection 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="pf-svg-size-sm"
+          class="pf-svg"
           fill="currentColor"
           role="img"
           viewBox="0 0 256 512"
@@ -99,7 +99,7 @@ exports[`ExpandableSection 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="pf-svg-size-sm"
+          class="pf-svg"
           fill="currentColor"
           role="img"
           viewBox="0 0 256 512"
@@ -139,7 +139,7 @@ exports[`Renders ExpandableSection expanded 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="pf-svg-size-sm"
+          class="pf-svg"
           fill="currentColor"
           role="img"
           viewBox="0 0 256 512"
@@ -178,7 +178,7 @@ exports[`Renders ExpandableSection indented 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="pf-svg-size-sm"
+          class="pf-svg"
           fill="currentColor"
           role="img"
           viewBox="0 0 256 512"
@@ -216,7 +216,7 @@ exports[`Renders Uncontrolled ExpandableSection 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="pf-svg-size-sm"
+          class="pf-svg"
           fill="currentColor"
           role="img"
           viewBox="0 0 256 512"

@@ -47,7 +47,7 @@ exports[`Drawer expands from bottom 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class="pf-svg-size-sm"
+                    class="pf-svg"
                     fill="currentColor"
                     role="img"
                     viewBox="0 0 352 512"
@@ -138,7 +138,7 @@ exports[`Drawer has resizable callback and id 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class="pf-svg-size-sm"
+                      class="pf-svg"
                       fill="currentColor"
                       role="img"
                       viewBox="0 0 352 512"
@@ -231,7 +231,7 @@ exports[`Drawer has resizable css and color variants 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class="pf-svg-size-sm"
+                      class="pf-svg"
                       fill="currentColor"
                       role="img"
                       viewBox="0 0 352 512"
@@ -358,7 +358,7 @@ exports[`Drawer isExpanded = true and isInline = false and isStatic = false 1`] 
                 >
                   <svg
                     aria-hidden="true"
-                    class="pf-svg-size-sm"
+                    class="pf-svg"
                     fill="currentColor"
                     role="img"
                     viewBox="0 0 352 512"
@@ -430,7 +430,7 @@ exports[`Drawer isExpanded = true and isInline = false and isStatic = true 1`] =
                 >
                   <svg
                     aria-hidden="true"
-                    class="pf-svg-size-sm"
+                    class="pf-svg"
                     fill="currentColor"
                     role="img"
                     viewBox="0 0 352 512"
@@ -502,7 +502,7 @@ exports[`Drawer isExpanded = true and isInline = true and isStatic = false 1`] =
                 >
                   <svg
                     aria-hidden="true"
-                    class="pf-svg-size-sm"
+                    class="pf-svg"
                     fill="currentColor"
                     role="img"
                     viewBox="0 0 352 512"

@@ -191,7 +191,7 @@ exports[`Page Check page to verify breadcrumb is created - PageBreadcrumb syntax
               >
                 <svg
                   aria-hidden="true"
-                  class="pf-svg-size-sm"
+                  class="pf-svg"
                   fill="currentColor"
                   role="img"
                   viewBox="0 0 256 512"
@@ -216,7 +216,7 @@ exports[`Page Check page to verify breadcrumb is created - PageBreadcrumb syntax
               >
                 <svg
                   aria-hidden="true"
-                  class="pf-svg-size-sm"
+                  class="pf-svg"
                   fill="currentColor"
                   role="img"
                   viewBox="0 0 256 512"
@@ -241,7 +241,7 @@ exports[`Page Check page to verify breadcrumb is created - PageBreadcrumb syntax
               >
                 <svg
                   aria-hidden="true"
-                  class="pf-svg-size-sm"
+                  class="pf-svg"
                   fill="currentColor"
                   role="img"
                   viewBox="0 0 256 512"
@@ -353,7 +353,7 @@ exports[`Page Check page to verify breadcrumb is created 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class="pf-svg-size-sm"
+                  class="pf-svg"
                   fill="currentColor"
                   role="img"
                   viewBox="0 0 256 512"
@@ -378,7 +378,7 @@ exports[`Page Check page to verify breadcrumb is created 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class="pf-svg-size-sm"
+                  class="pf-svg"
                   fill="currentColor"
                   role="img"
                   viewBox="0 0 256 512"
@@ -403,7 +403,7 @@ exports[`Page Check page to verify breadcrumb is created 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class="pf-svg-size-sm"
+                  class="pf-svg"
                   fill="currentColor"
                   role="img"
                   viewBox="0 0 256 512"
@@ -518,7 +518,7 @@ exports[`Page Check page to verify grouped nav and breadcrumb - new components s
                 >
                   <svg
                     aria-hidden="true"
-                    class="pf-svg-size-sm"
+                    class="pf-svg"
                     fill="currentColor"
                     role="img"
                     viewBox="0 0 256 512"
@@ -543,7 +543,7 @@ exports[`Page Check page to verify grouped nav and breadcrumb - new components s
                 >
                   <svg
                     aria-hidden="true"
-                    class="pf-svg-size-sm"
+                    class="pf-svg"
                     fill="currentColor"
                     role="img"
                     viewBox="0 0 256 512"
@@ -568,7 +568,7 @@ exports[`Page Check page to verify grouped nav and breadcrumb - new components s
                 >
                   <svg
                     aria-hidden="true"
-                    class="pf-svg-size-sm"
+                    class="pf-svg"
                     fill="currentColor"
                     role="img"
                     viewBox="0 0 256 512"
@@ -606,7 +606,7 @@ exports[`Page Check page to verify grouped nav and breadcrumb - new components s
             >
               <svg
                 aria-hidden="true"
-                class="pf-svg-size-sm"
+                class="pf-svg"
                 fill="currentColor"
                 role="img"
                 viewBox="0 0 256 512"
@@ -689,7 +689,7 @@ exports[`Page Check page to verify grouped nav and breadcrumb - new components s
             >
               <svg
                 aria-hidden="true"
-                class="pf-svg-size-sm"
+                class="pf-svg"
                 fill="currentColor"
                 role="img"
                 viewBox="0 0 256 512"
@@ -789,7 +789,7 @@ exports[`Page Check page to verify grouped nav and breadcrumb - old / props synt
             >
               <svg
                 aria-hidden="true"
-                class="pf-svg-size-sm"
+                class="pf-svg"
                 fill="currentColor"
                 role="img"
                 viewBox="0 0 256 512"
@@ -872,7 +872,7 @@ exports[`Page Check page to verify grouped nav and breadcrumb - old / props synt
             >
               <svg
                 aria-hidden="true"
-                class="pf-svg-size-sm"
+                class="pf-svg"
                 fill="currentColor"
                 role="img"
                 viewBox="0 0 256 512"
@@ -914,7 +914,7 @@ exports[`Page Check page to verify grouped nav and breadcrumb - old / props synt
                   >
                     <svg
                       aria-hidden="true"
-                      class="pf-svg-size-sm"
+                      class="pf-svg"
                       fill="currentColor"
                       role="img"
                       viewBox="0 0 256 512"
@@ -939,7 +939,7 @@ exports[`Page Check page to verify grouped nav and breadcrumb - old / props synt
                   >
                     <svg
                       aria-hidden="true"
-                      class="pf-svg-size-sm"
+                      class="pf-svg"
                       fill="currentColor"
                       role="img"
                       viewBox="0 0 256 512"
@@ -964,7 +964,7 @@ exports[`Page Check page to verify grouped nav and breadcrumb - old / props synt
                   >
                     <svg
                       aria-hidden="true"
-                      class="pf-svg-size-sm"
+                      class="pf-svg"
                       fill="currentColor"
                       role="img"
                       viewBox="0 0 256 512"
@@ -1068,7 +1068,7 @@ exports[`Page Check page to verify nav is created - PageNavigation syntax 1`] = 
           >
             <svg
               aria-hidden="true"
-              class="pf-svg-size-sm"
+              class="pf-svg"
               fill="currentColor"
               role="img"
               viewBox="0 0 256 512"
@@ -1151,7 +1151,7 @@ exports[`Page Check page to verify nav is created - PageNavigation syntax 1`] = 
           >
             <svg
               aria-hidden="true"
-              class="pf-svg-size-sm"
+              class="pf-svg"
               fill="currentColor"
               role="img"
               viewBox="0 0 256 512"
@@ -1270,7 +1270,7 @@ exports[`Page Check page to verify skip to content points to main content region
               >
                 <svg
                   aria-hidden="true"
-                  class="pf-svg-size-sm"
+                  class="pf-svg"
                   fill="currentColor"
                   role="img"
                   viewBox="0 0 256 512"
@@ -1295,7 +1295,7 @@ exports[`Page Check page to verify skip to content points to main content region
               >
                 <svg
                   aria-hidden="true"
-                  class="pf-svg-size-sm"
+                  class="pf-svg"
                   fill="currentColor"
                   role="img"
                   viewBox="0 0 256 512"
@@ -1320,7 +1320,7 @@ exports[`Page Check page to verify skip to content points to main content region
               >
                 <svg
                   aria-hidden="true"
-                  class="pf-svg-size-sm"
+                  class="pf-svg"
                   fill="currentColor"
                   role="img"
                   viewBox="0 0 256 512"
@@ -1493,7 +1493,7 @@ exports[`Page Sticky bottom breadcrumb on all height breakpoints - PageBreadcrum
               >
                 <svg
                   aria-hidden="true"
-                  class="pf-svg-size-sm"
+                  class="pf-svg"
                   fill="currentColor"
                   role="img"
                   viewBox="0 0 256 512"
@@ -1518,7 +1518,7 @@ exports[`Page Sticky bottom breadcrumb on all height breakpoints - PageBreadcrum
               >
                 <svg
                   aria-hidden="true"
-                  class="pf-svg-size-sm"
+                  class="pf-svg"
                   fill="currentColor"
                   role="img"
                   viewBox="0 0 256 512"
@@ -1543,7 +1543,7 @@ exports[`Page Sticky bottom breadcrumb on all height breakpoints - PageBreadcrum
               >
                 <svg
                   aria-hidden="true"
-                  class="pf-svg-size-sm"
+                  class="pf-svg"
                   fill="currentColor"
                   role="img"
                   viewBox="0 0 256 512"
@@ -1655,7 +1655,7 @@ exports[`Page Verify sticky bottom breadcrumb on all height breakpoints 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class="pf-svg-size-sm"
+                  class="pf-svg"
                   fill="currentColor"
                   role="img"
                   viewBox="0 0 256 512"
@@ -1680,7 +1680,7 @@ exports[`Page Verify sticky bottom breadcrumb on all height breakpoints 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class="pf-svg-size-sm"
+                  class="pf-svg"
                   fill="currentColor"
                   role="img"
                   viewBox="0 0 256 512"
@@ -1705,7 +1705,7 @@ exports[`Page Verify sticky bottom breadcrumb on all height breakpoints 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class="pf-svg-size-sm"
+                  class="pf-svg"
                   fill="currentColor"
                   role="img"
                   viewBox="0 0 256 512"
@@ -1817,7 +1817,7 @@ exports[`Page Verify sticky top breadcrumb on all height breakpoints - PageBread
               >
                 <svg
                   aria-hidden="true"
-                  class="pf-svg-size-sm"
+                  class="pf-svg"
                   fill="currentColor"
                   role="img"
                   viewBox="0 0 256 512"
@@ -1842,7 +1842,7 @@ exports[`Page Verify sticky top breadcrumb on all height breakpoints - PageBread
               >
                 <svg
                   aria-hidden="true"
-                  class="pf-svg-size-sm"
+                  class="pf-svg"
                   fill="currentColor"
                   role="img"
                   viewBox="0 0 256 512"
@@ -1867,7 +1867,7 @@ exports[`Page Verify sticky top breadcrumb on all height breakpoints - PageBread
               >
                 <svg
                   aria-hidden="true"
-                  class="pf-svg-size-sm"
+                  class="pf-svg"
                   fill="currentColor"
                   role="img"
                   viewBox="0 0 256 512"
@@ -1979,7 +1979,7 @@ exports[`Page Verify sticky top breadcrumb on all height breakpoints 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class="pf-svg-size-sm"
+                  class="pf-svg"
                   fill="currentColor"
                   role="img"
                   viewBox="0 0 256 512"
@@ -2004,7 +2004,7 @@ exports[`Page Verify sticky top breadcrumb on all height breakpoints 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class="pf-svg-size-sm"
+                  class="pf-svg"
                   fill="currentColor"
                   role="img"
                   viewBox="0 0 256 512"
@@ -2029,7 +2029,7 @@ exports[`Page Verify sticky top breadcrumb on all height breakpoints 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class="pf-svg-size-sm"
+                  class="pf-svg"
                   fill="currentColor"
                   role="img"
                   viewBox="0 0 256 512"

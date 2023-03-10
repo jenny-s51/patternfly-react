@@ -25,7 +25,7 @@ exports[`OptionsMenuToggle should match snapshot (auto-generated) 1`] = `
     >
       <svg
         aria-hidden="true"
-        class="pf-svg-size-sm"
+        class="pf-svg"
         fill="currentColor"
         role="img"
         viewBox="0 0 320 512"

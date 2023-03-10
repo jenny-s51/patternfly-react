@@ -118,7 +118,7 @@ exports[`DualListSelector basic 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 256 512"
@@ -144,7 +144,7 @@ exports[`DualListSelector basic 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 448 512"
@@ -171,7 +171,7 @@ exports[`DualListSelector basic 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 448 512"
@@ -198,7 +198,7 @@ exports[`DualListSelector basic 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 256 512"
@@ -368,7 +368,7 @@ exports[`DualListSelector basic with disabled controls 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 256 512"
@@ -395,7 +395,7 @@ exports[`DualListSelector basic with disabled controls 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 448 512"
@@ -422,7 +422,7 @@ exports[`DualListSelector basic with disabled controls 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 448 512"
@@ -449,7 +449,7 @@ exports[`DualListSelector basic with disabled controls 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 256 512"
@@ -630,7 +630,7 @@ exports[`DualListSelector with actions 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 256 512"
@@ -656,7 +656,7 @@ exports[`DualListSelector with actions 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 448 512"
@@ -682,7 +682,7 @@ exports[`DualListSelector with actions 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 448 512"
@@ -709,7 +709,7 @@ exports[`DualListSelector with actions 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 256 512"
@@ -944,7 +944,7 @@ exports[`DualListSelector with custom status 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 256 512"
@@ -970,7 +970,7 @@ exports[`DualListSelector with custom status 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 448 512"
@@ -997,7 +997,7 @@ exports[`DualListSelector with custom status 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 448 512"
@@ -1024,7 +1024,7 @@ exports[`DualListSelector with custom status 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 256 512"
@@ -1117,7 +1117,7 @@ exports[`DualListSelector with search inputs 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class="pf-svg-size-sm"
+                    class="pf-svg"
                     fill="currentColor"
                     role="img"
                     viewBox="0 0 512 512"
@@ -1234,7 +1234,7 @@ exports[`DualListSelector with search inputs 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 256 512"
@@ -1260,7 +1260,7 @@ exports[`DualListSelector with search inputs 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 448 512"
@@ -1287,7 +1287,7 @@ exports[`DualListSelector with search inputs 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 448 512"
@@ -1314,7 +1314,7 @@ exports[`DualListSelector with search inputs 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 256 512"
@@ -1362,7 +1362,7 @@ exports[`DualListSelector with search inputs 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class="pf-svg-size-sm"
+                    class="pf-svg"
                     fill="currentColor"
                     role="img"
                     viewBox="0 0 512 512"
@@ -1475,7 +1475,7 @@ exports[`DualListSelector with tree 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class="pf-svg-size-sm"
+                        class="pf-svg"
                         fill="currentColor"
                         role="img"
                         viewBox="0 0 256 512"
@@ -1599,7 +1599,7 @@ exports[`DualListSelector with tree 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 256 512"
@@ -1625,7 +1625,7 @@ exports[`DualListSelector with tree 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 448 512"
@@ -1652,7 +1652,7 @@ exports[`DualListSelector with tree 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 448 512"
@@ -1679,7 +1679,7 @@ exports[`DualListSelector with tree 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 256 512"

@@ -30,7 +30,7 @@ exports[`CodeEditor matches snapshot with all props 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class="pf-svg-size-sm"
+                class="pf-svg"
                 fill="currentColor"
                 role="img"
                 viewBox="0 0 448 512"
@@ -55,7 +55,7 @@ exports[`CodeEditor matches snapshot with all props 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class="pf-svg-size-sm"
+                class="pf-svg"
                 fill="currentColor"
                 role="img"
                 viewBox="0 0 512 512"
@@ -80,7 +80,7 @@ exports[`CodeEditor matches snapshot with all props 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class="pf-svg-size-sm"
+                class="pf-svg"
                 fill="currentColor"
                 role="img"
                 viewBox="0 0 512 512"
@@ -103,7 +103,7 @@ exports[`CodeEditor matches snapshot with all props 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="pf-svg-size-sm"
+              class="pf-svg"
               fill="currentColor"
               role="img"
               viewBox="0 0 640 512"

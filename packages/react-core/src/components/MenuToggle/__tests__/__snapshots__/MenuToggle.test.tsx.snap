@@ -20,7 +20,7 @@ exports[`menu toggle passes additional classes 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="pf-svg-size-sm"
+          class="pf-svg"
           fill="currentColor"
           role="img"
           viewBox="0 0 320 512"
@@ -55,7 +55,7 @@ exports[`menu toggle renders successfully 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="pf-svg-size-sm"
+          class="pf-svg"
           fill="currentColor"
           role="img"
           viewBox="0 0 320 512"
@@ -99,7 +99,7 @@ exports[`menu toggle shows badge 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="pf-svg-size-sm"
+          class="pf-svg"
           fill="currentColor"
           role="img"
           viewBox="0 0 320 512"
@@ -126,7 +126,7 @@ exports[`menu toggle shows icon 1`] = `
     >
       <svg
         aria-hidden="true"
-        class="pf-svg-size-sm"
+        class="pf-svg"
         fill="currentColor"
         role="img"
         viewBox="0 0 512 512"
@@ -149,7 +149,7 @@ exports[`menu toggle shows icon 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="pf-svg-size-sm"
+          class="pf-svg"
           fill="currentColor"
           role="img"
           viewBox="0 0 320 512"
@@ -185,7 +185,7 @@ exports[`menu toggle shows isDisabled 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="pf-svg-size-sm"
+          class="pf-svg"
           fill="currentColor"
           role="img"
           viewBox="0 0 320 512"
@@ -220,7 +220,7 @@ exports[`menu toggle shows isExpanded 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="pf-svg-size-sm"
+          class="pf-svg"
           fill="currentColor"
           role="img"
           viewBox="0 0 320 512"
@@ -244,7 +244,7 @@ exports[`menu toggle shows isPlain 1`] = `
   >
     <svg
       aria-hidden="true"
-      class="pf-svg-size-sm"
+      class="pf-svg"
       fill="currentColor"
       role="img"
       viewBox="0 0 192 512"
@@ -277,7 +277,7 @@ exports[`menu toggle shows isPrimary 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="pf-svg-size-sm"
+          class="pf-svg"
           fill="currentColor"
           role="img"
           viewBox="0 0 320 512"
@@ -312,7 +312,7 @@ exports[`menu toggle shows plain text 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="pf-svg-size-sm"
+          class="pf-svg"
           fill="currentColor"
           role="img"
           viewBox="0 0 320 512"

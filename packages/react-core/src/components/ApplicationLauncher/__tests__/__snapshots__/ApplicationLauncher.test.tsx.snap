@@ -22,7 +22,7 @@ exports[`ApplicationLauncher Renders in strict mode 1`] = `
       <span>
         <svg
           aria-hidden="true"
-          class="pf-svg-size-sm"
+          class="pf-svg"
           fill="currentColor"
           role="img"
           viewBox="0 0 512 512"
@@ -167,7 +167,7 @@ exports[`ApplicationLauncher custom icon 1`] = `
       <span>
         <svg
           aria-hidden="true"
-          class="pf-svg-size-sm"
+          class="pf-svg"
           fill="currentColor"
           id="test-icon"
           role="img"
@@ -312,7 +312,7 @@ exports[`ApplicationLauncher dropup + right aligned 1`] = `
       <span>
         <svg
           aria-hidden="true"
-          class="pf-svg-size-sm"
+          class="pf-svg"
           fill="currentColor"
           role="img"
           viewBox="0 0 512 512"
@@ -349,7 +349,7 @@ exports[`ApplicationLauncher dropup 1`] = `
       <span>
         <svg
           aria-hidden="true"
-          class="pf-svg-size-sm"
+          class="pf-svg"
           fill="currentColor"
           role="img"
           viewBox="0 0 512 512"
@@ -386,7 +386,7 @@ exports[`ApplicationLauncher expanded 1`] = `
       <span>
         <svg
           aria-hidden="true"
-          class="pf-svg-size-sm"
+          class="pf-svg"
           fill="currentColor"
           role="img"
           viewBox="0 0 512 512"
@@ -530,7 +530,7 @@ exports[`ApplicationLauncher regular 1`] = `
       <span>
         <svg
           aria-hidden="true"
-          class="pf-svg-size-sm"
+          class="pf-svg"
           fill="currentColor"
           role="img"
           viewBox="0 0 512 512"
@@ -567,7 +567,7 @@ exports[`ApplicationLauncher right aligned 1`] = `
       <span>
         <svg
           aria-hidden="true"
-          class="pf-svg-size-sm"
+          class="pf-svg"
           fill="currentColor"
           role="img"
           viewBox="0 0 512 512"

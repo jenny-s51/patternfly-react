@@ -145,7 +145,7 @@ exports[`DataList DataListAction dropdown 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 192 512"

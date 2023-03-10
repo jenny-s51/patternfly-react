@@ -18,7 +18,7 @@ exports[`MultipleFileUploadStatus renders custom class names 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 256 512"
@@ -77,7 +77,7 @@ exports[`MultipleFileUploadStatus renders status toggle icon 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 256 512"
@@ -98,7 +98,7 @@ exports[`MultipleFileUploadStatus renders status toggle icon 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class="pf-svg-size-sm"
+                class="pf-svg"
                 fill="currentColor"
                 role="img"
                 viewBox="0 0 1024 1024"
@@ -148,7 +148,7 @@ exports[`MultipleFileUploadStatus renders status toggle text 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 256 512"
@@ -209,7 +209,7 @@ exports[`MultipleFileUploadStatus renders with expected class names 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 256 512"

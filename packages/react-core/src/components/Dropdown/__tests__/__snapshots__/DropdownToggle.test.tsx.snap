@@ -28,7 +28,7 @@ exports[`DropdownToggle state action split button - renders primary variant 1`] 
       >
         <svg
           aria-hidden="true"
-          class="pf-svg-size-sm"
+          class="pf-svg"
           fill="currentColor"
           role="img"
           viewBox="0 0 320 512"
@@ -64,7 +64,7 @@ exports[`DropdownToggle state active 1`] = `
     >
       <svg
         aria-hidden="true"
-        class="pf-svg-size-sm"
+        class="pf-svg"
         fill="currentColor"
         role="img"
         viewBox="0 0 320 512"
@@ -99,7 +99,7 @@ exports[`DropdownToggle state button variant - plain with text 1`] = `
     >
       <svg
         aria-hidden="true"
-        class="pf-svg-size-sm"
+        class="pf-svg"
         fill="currentColor"
         role="img"
         viewBox="0 0 320 512"
@@ -134,7 +134,7 @@ exports[`DropdownToggle state button variant - primary 1`] = `
     >
       <svg
         aria-hidden="true"
-        class="pf-svg-size-sm"
+        class="pf-svg"
         fill="currentColor"
         role="img"
         viewBox="0 0 320 512"
@@ -169,7 +169,7 @@ exports[`DropdownToggle state button variant - secondary 1`] = `
     >
       <svg
         aria-hidden="true"
-        class="pf-svg-size-sm"
+        class="pf-svg"
         fill="currentColor"
         role="img"
         viewBox="0 0 320 512"
@@ -204,7 +204,7 @@ exports[`DropdownToggle state class changes 1`] = `
     >
       <svg
         aria-hidden="true"
-        class="pf-svg-size-sm"
+        class="pf-svg"
         fill="currentColor"
         role="img"
         viewBox="0 0 320 512"
@@ -239,7 +239,7 @@ exports[`DropdownToggle state focus 1`] = `
     >
       <svg
         aria-hidden="true"
-        class="pf-svg-size-sm"
+        class="pf-svg"
         fill="currentColor"
         role="img"
         viewBox="0 0 320 512"
@@ -274,7 +274,7 @@ exports[`DropdownToggle state hover 1`] = `
     >
       <svg
         aria-hidden="true"
-        class="pf-svg-size-sm"
+        class="pf-svg"
         fill="currentColor"
         role="img"
         viewBox="0 0 320 512"
@@ -316,7 +316,7 @@ exports[`DropdownToggle state split button - does not render primary variant 1`]
       >
         <svg
           aria-hidden="true"
-          class="pf-svg-size-sm"
+          class="pf-svg"
           fill="currentColor"
           role="img"
           viewBox="0 0 320 512"

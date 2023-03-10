@@ -23,7 +23,7 @@ exports[`ContextSelector Renders ContextSelector 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="pf-svg-size-sm"
+          class="pf-svg"
           fill="currentColor"
           role="img"
           viewBox="0 0 320 512"
@@ -61,7 +61,7 @@ exports[`ContextSelector Renders ContextSelector open 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="pf-svg-size-sm"
+          class="pf-svg"
           fill="currentColor"
           role="img"
           viewBox="0 0 320 512"
@@ -97,7 +97,7 @@ exports[`ContextSelector Renders ContextSelector open 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class="pf-svg-size-sm"
+                      class="pf-svg"
                       fill="currentColor"
                       role="img"
                       viewBox="0 0 512 512"
@@ -128,7 +128,7 @@ exports[`ContextSelector Renders ContextSelector open 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class="pf-svg-size-sm"
+                class="pf-svg"
                 fill="currentColor"
                 role="img"
                 viewBox="0 0 448 512"
@@ -224,7 +224,7 @@ exports[`ContextSelector Renders in strict mode 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="pf-svg-size-sm"
+          class="pf-svg"
           fill="currentColor"
           role="img"
           viewBox="0 0 320 512"
@@ -260,7 +260,7 @@ exports[`ContextSelector Renders in strict mode 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class="pf-svg-size-sm"
+                      class="pf-svg"
                       fill="currentColor"
                       role="img"
                       viewBox="0 0 512 512"
@@ -291,7 +291,7 @@ exports[`ContextSelector Renders in strict mode 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class="pf-svg-size-sm"
+                class="pf-svg"
                 fill="currentColor"
                 role="img"
                 viewBox="0 0 448 512"

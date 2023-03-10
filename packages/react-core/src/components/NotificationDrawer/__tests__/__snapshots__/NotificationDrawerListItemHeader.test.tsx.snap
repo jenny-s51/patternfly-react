@@ -10,7 +10,7 @@ exports[`NotificationDrawerListItemHeader list item header with custom icon appl
     >
       <svg
         aria-hidden="true"
-        class="pf-svg-size-sm"
+        class="pf-svg"
         fill="currentColor"
         role="img"
         viewBox="0 0 896 1024"
@@ -39,7 +39,7 @@ exports[`NotificationDrawerListItemHeader list item header with srTitle applied 
     >
       <svg
         aria-hidden="true"
-        class="pf-svg-size-sm"
+        class="pf-svg"
         fill="currentColor"
         role="img"
         viewBox="0 0 896 1024"
@@ -73,7 +73,7 @@ exports[`NotificationDrawerListItemHeader list item header with variant applied 
     >
       <svg
         aria-hidden="true"
-        class="pf-svg-size-sm"
+        class="pf-svg"
         fill="currentColor"
         role="img"
         viewBox="0 0 512 512"
@@ -102,7 +102,7 @@ exports[`NotificationDrawerListItemHeader renders with PatternFly Core styles 1`
     >
       <svg
         aria-hidden="true"
-        class="pf-svg-size-sm"
+        class="pf-svg"
         fill="currentColor"
         role="img"
         viewBox="0 0 896 1024"
@@ -131,7 +131,7 @@ exports[`NotificationDrawerListItemHeader renders with correct heading level 1`]
     >
       <svg
         aria-hidden="true"
-        class="pf-svg-size-sm"
+        class="pf-svg"
         fill="currentColor"
         role="img"
         viewBox="0 0 896 1024"

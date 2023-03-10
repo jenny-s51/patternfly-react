@@ -23,7 +23,7 @@ exports[`Matches snapshot when expanded 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="pf-svg-size-sm"
+          class="pf-svg"
           fill="currentColor"
           role="img"
           viewBox="0 0 256 512"
@@ -109,7 +109,7 @@ exports[`Renders tabs passed via overflowingTabs when expanded in strict mode 1`
       >
         <svg
           aria-hidden="true"
-          class="pf-svg-size-sm"
+          class="pf-svg"
           fill="currentColor"
           role="img"
           viewBox="0 0 256 512"

@@ -23,7 +23,7 @@ exports[`numberInput disables lower threshold 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 448 512"
@@ -59,7 +59,7 @@ exports[`numberInput disables lower threshold 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 448 512"
@@ -97,7 +97,7 @@ exports[`numberInput disables upper threshold 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 448 512"
@@ -134,7 +134,7 @@ exports[`numberInput disables upper threshold 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 448 512"
@@ -173,7 +173,7 @@ exports[`numberInput passes button props successfully 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 448 512"
@@ -210,7 +210,7 @@ exports[`numberInput passes button props successfully 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 448 512"
@@ -248,7 +248,7 @@ exports[`numberInput passes input props successfully 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 448 512"
@@ -284,7 +284,7 @@ exports[`numberInput passes input props successfully 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 448 512"
@@ -323,7 +323,7 @@ exports[`numberInput renders custom width 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 448 512"
@@ -359,7 +359,7 @@ exports[`numberInput renders custom width 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 448 512"
@@ -398,7 +398,7 @@ exports[`numberInput renders defaults & extra props 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 448 512"
@@ -434,7 +434,7 @@ exports[`numberInput renders defaults & extra props 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 448 512"
@@ -473,7 +473,7 @@ exports[`numberInput renders disabled 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 448 512"
@@ -511,7 +511,7 @@ exports[`numberInput renders disabled 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 448 512"
@@ -549,7 +549,7 @@ exports[`numberInput renders error validated 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 448 512"
@@ -585,7 +585,7 @@ exports[`numberInput renders error validated 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 448 512"
@@ -623,7 +623,7 @@ exports[`numberInput renders success validated 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 448 512"
@@ -659,7 +659,7 @@ exports[`numberInput renders success validated 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 448 512"
@@ -702,7 +702,7 @@ exports[`numberInput renders unit & position 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 448 512"
@@ -738,7 +738,7 @@ exports[`numberInput renders unit & position 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 448 512"
@@ -776,7 +776,7 @@ exports[`numberInput renders unit 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 448 512"
@@ -812,7 +812,7 @@ exports[`numberInput renders unit 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 448 512"
@@ -855,7 +855,7 @@ exports[`numberInput renders value 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 448 512"
@@ -891,7 +891,7 @@ exports[`numberInput renders value 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 448 512"
@@ -929,7 +929,7 @@ exports[`numberInput renders warning validated 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 448 512"
@@ -965,7 +965,7 @@ exports[`numberInput renders warning validated 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 448 512"

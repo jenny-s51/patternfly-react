@@ -29,7 +29,7 @@ exports[`NotificationDrawerGroup drawer group with isExpanded applied  1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 256 512"
@@ -74,7 +74,7 @@ exports[`NotificationDrawerGroup drawer group with isRead applied  1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 256 512"
@@ -119,7 +119,7 @@ exports[`NotificationDrawerGroup renders correct heading level 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 256 512"
@@ -164,7 +164,7 @@ exports[`NotificationDrawerGroup renders with PatternFly Core styles 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="pf-svg-size-sm"
+            class="pf-svg"
             fill="currentColor"
             role="img"
             viewBox="0 0 256 512"

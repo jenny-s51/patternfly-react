@@ -422,7 +422,7 @@ exports[`should render expandable vertical tabs 1`] = `
             <svg
               aria-hidden="true"
               arian-hidden="true"
-              class="pf-svg-size-sm"
+              class="pf-svg"
               fill="currentColor"
               role="img"
               viewBox="0 0 256 512"

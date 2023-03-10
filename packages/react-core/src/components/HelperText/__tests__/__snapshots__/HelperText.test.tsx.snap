@@ -28,7 +28,7 @@ exports[`HelperText dynamic helper text renders successfully 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="pf-svg-size-sm"
+          class="pf-svg"
           fill="currentColor"
           role="img"
           viewBox="0 0 448 512"
@@ -103,7 +103,7 @@ exports[`HelperText icon helper text renders properly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="pf-svg-size-sm"
+          class="pf-svg"
           fill="currentColor"
           role="img"
           viewBox="0 0 512 512"

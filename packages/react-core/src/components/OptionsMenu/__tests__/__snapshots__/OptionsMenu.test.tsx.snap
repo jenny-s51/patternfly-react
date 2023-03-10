@@ -28,7 +28,7 @@ exports[`optionsMenu expanded 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="pf-svg-size-sm"
+          class="pf-svg"
           fill="currentColor"
           role="img"
           viewBox="0 0 320 512"
@@ -223,7 +223,7 @@ exports[`optionsMenu isDisabled 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="pf-svg-size-sm"
+          class="pf-svg"
           fill="currentColor"
           role="img"
           viewBox="0 0 320 512"
@@ -266,7 +266,7 @@ exports[`optionsMenu open up 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="pf-svg-size-sm"
+          class="pf-svg"
           fill="currentColor"
           role="img"
           viewBox="0 0 320 512"
@@ -335,7 +335,7 @@ exports[`optionsMenu regular 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="pf-svg-size-sm"
+          class="pf-svg"
           fill="currentColor"
           role="img"
           viewBox="0 0 320 512"
@@ -378,7 +378,7 @@ exports[`optionsMenu renders in strict mode 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="pf-svg-size-sm"
+          class="pf-svg"
           fill="currentColor"
           role="img"
           viewBox="0 0 320 512"
@@ -572,7 +572,7 @@ exports[`optionsMenu right aligned + open up 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="pf-svg-size-sm"
+          class="pf-svg"
           fill="currentColor"
           role="img"
           viewBox="0 0 320 512"
@@ -615,7 +615,7 @@ exports[`optionsMenu right aligned 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="pf-svg-size-sm"
+          class="pf-svg"
           fill="currentColor"
           role="img"
           viewBox="0 0 320 512"

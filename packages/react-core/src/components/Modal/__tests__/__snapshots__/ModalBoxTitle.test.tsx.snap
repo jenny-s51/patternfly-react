@@ -11,7 +11,7 @@ exports[`ModalBoxTitle alert variant 1`] = `
     >
       <svg
         aria-hidden="true"
-        class="pf-svg-size-sm"
+        class="pf-svg"
         fill="currentColor"
         role="img"
         viewBox="0 0 576 512"
@@ -46,7 +46,7 @@ exports[`ModalBoxTitle custom icon variant 1`] = `
     >
       <svg
         aria-hidden="true"
-        class="pf-svg-size-sm"
+        class="pf-svg"
         fill="currentColor"
         role="img"
         viewBox="0 0 576 512"
@@ -76,7 +76,7 @@ exports[`ModalBoxTitle danger variant 1`] = `
     >
       <svg
         aria-hidden="true"
-        class="pf-svg-size-sm"
+        class="pf-svg"
         fill="currentColor"
         role="img"
         viewBox="0 0 512 512"
@@ -111,7 +111,7 @@ exports[`ModalBoxTitle default variant 1`] = `
     >
       <svg
         aria-hidden="true"
-        class="pf-svg-size-sm"
+        class="pf-svg"
         fill="currentColor"
         role="img"
         viewBox="0 0 896 1024"
@@ -146,7 +146,7 @@ exports[`ModalBoxTitle info variant 1`] = `
     >
       <svg
         aria-hidden="true"
-        class="pf-svg-size-sm"
+        class="pf-svg"
         fill="currentColor"
         role="img"
         viewBox="0 0 512 512"
@@ -181,7 +181,7 @@ exports[`ModalBoxTitle success variant 1`] = `
     >
       <svg
         aria-hidden="true"
-        class="pf-svg-size-sm"
+        class="pf-svg"
         fill="currentColor"
         role="img"
         viewBox="0 0 512 512"

@@ -1,27 +1,4 @@
 import * as React from 'react';
-// import '@patternfly/patternfly/base/patternfly-icons.scss';
-
-export enum IconSize {
-  sm = 'sm',
-  md = 'md',
-  lg = 'lg',
-  xl = 'xl'
-}
-
-export const getSizeClass = (size: IconSize | keyof typeof IconSize) => {
-  switch (size) {
-    case IconSize.sm:
-      return 'pf-svg-size-sm';
-    case IconSize.md:
-      return 'pf-svg-size-md';
-    case IconSize.lg:
-      return 'pf-svg-size-lg';
-    case IconSize.xl:
-      return 'pf-svg-size-xl';
-    default:
-      return 'pf-svg-size-sm';
-  }
-};
 
 export interface IconDefinition {
   name?: string;
@@ -32,7 +9,7 @@ export interface IconDefinition {
   yOffset?: number;
 }
 
-export interface SVGIconProps extends Omit<React.HTMLProps<SVGElement>, 'size' | 'ref'> {
+export interface SVGIconProps extends Omit<React.HTMLProps<SVGElement>, 'ref'> {
   title?: string;
 }
 
@@ -64,6 +41,7 @@ export function createIcon({
         <svg
           className="pf-svg"
           viewBox={viewBox}
+          fill="currentColor"
           aria-labelledby={hasTitle ? this.id : null}
           aria-hidden={hasTitle ? null : true}
           role="img"

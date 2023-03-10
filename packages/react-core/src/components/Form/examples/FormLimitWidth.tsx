@@ -58,7 +58,7 @@ export const FormLimitWidth: React.FunctionComponent = () => {
               aria-describedby="simple-form-name-02"
               className="pf-c-form__group-label-help"
             >
-              <HelpIcon noVerticalAlign />
+              <HelpIcon />
             </button>
           </Popover>
         }
