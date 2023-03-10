@@ -33,10 +33,7 @@ export interface IconDefinition {
 }
 
 export interface SVGIconProps extends Omit<React.HTMLProps<SVGElement>, 'size' | 'ref'> {
-  color?: string;
-  size?: IconSize | keyof typeof IconSize;
   title?: string;
-  noVerticalAlign?: boolean;
 }
 
 let currentId = 0;
@@ -54,25 +51,18 @@ export function createIcon({
 }: IconDefinition): React.ComponentClass<SVGIconProps> {
   return class SVGIcon extends React.Component<SVGIconProps> {
     static displayName = name;
-    static defaultProps = {
-      color: 'currentColor',
-      size: IconSize.sm,
-      noVerticalAlign: false
-    };
 
     id = `icon-title-${currentId++}`;
 
     render() {
-      const { size, color, title, className, ...props } = this.props;
+      const { title, ...props } = this.props;
 
       const hasTitle = Boolean(title);
       const viewBox = [xOffset, yOffset, width, height].join(' ');
-      const classes: String[] = [className, getSizeClass(size)].filter(t => t);
 
       return (
         <svg
-          className={classes.length > 0 ? classes.join(' ') : undefined}
-          fill={color}
+          className="pf-svg"
           viewBox={viewBox}
           aria-labelledby={hasTitle ? this.id : null}
           aria-hidden={hasTitle ? null : true}
