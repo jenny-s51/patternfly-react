@@ -2,6 +2,13 @@
 
 PatternFly 4 Icons as React Components.
 
+**Note:** svg styling comes from react-styles, which is a dependency of react-icons. The generic styles for svg icons are (as recommended by font-awesome):
+```
+height: "1em";
+style: "vertical-align: -0.125em";
+width: "1em";
+```
+
 ## Usage
 
 ```jsx
