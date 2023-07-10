@@ -28,6 +28,8 @@ This demonstrates how you can assemble a full page view that contains a grid of 
 ### Card view
 
 ```js isFullscreen
+import DashboardWrapper from '@patternfly/react-core/src/demos/examples/DashboardWrapper';
+
 import React from 'react';
 import {
   Badge,
@@ -37,7 +39,6 @@ import {
   CardHeader,
   CardTitle,
   CardBody,
-  Checkbox,
   Divider,
   Dropdown,
   DropdownItem,
@@ -60,302 +61,207 @@ import {
   Pagination,
   TextContent,
   Text,
-  Title,
   Toolbar,
   ToolbarItem,
   ToolbarFilter,
   ToolbarContent,
   Select,
   SelectList,
-  SelectOption
+  SelectOption,
+  MenuToggleElement
 } from '@patternfly/react-core';
-import EllipsisVIcon from '@patternfly/react-icons/dist/esm/icons/ellipsis-v-icon';
-import DashboardWrapper from '@patternfly/react-core/src/demos/examples/DashboardWrapper';
-
-import FilterIcon from '@patternfly/react-icons/dist/esm/icons/filter-icon';
-import TrashIcon from '@patternfly/react-icons/dist/esm/icons/trash-icon';
-import PlusCircleIcon from '@patternfly/react-icons/dist/esm/icons/plus-circle-icon';
-import pfIcon from './pf-logo-small.svg';
-import activeMQIcon from './activemq-core_200x150.png';
-import avroIcon from './camel-avro_200x150.png';
-import dropBoxIcon from './camel-dropbox_200x150.png';
-import infinispanIcon from './camel-infinispan_200x150.png';
-import saxonIcon from './camel-saxon_200x150.png';
-import sparkIcon from './camel-spark_200x150.png';
-import swaggerIcon from './camel-swagger-java_200x150.png';
-import azureIcon from './FuseConnector_Icons_AzureServices.png';
-import restIcon from './FuseConnector_Icons_REST.png';
 import { data } from './CardData.jsx';
+import PlusCircleIcon from '@patternfly/react-icons/dist/esm/icons/plus-circle-icon';
+import TrashIcon from '@patternfly/react-icons/dist/esm/icons/trash-icon';
+import EllipsisVIcon from '@patternfly/react-icons/dist/esm/icons/ellipsis-v-icon';
 
-class CardViewBasic extends React.Component {
-  constructor(props) {
-    super(props);
+export const CardViewBasic: React.FunctionComponent = () => {
 
-    this.state = {
-      filters: {
-        products: []
-      },
-      cardData: data,
-      isChecked: false,
-      selectedItems: [],
-      areAllSelected: false,
-      isUpperToolbarDropdownOpen: false,
-      isUpperToolbarKebabDropdownOpen: false,
-      isLowerToolbarDropdownOpen: false,
-      isLowerToolbarKebabDropdownOpen: false,
-      isCardKebabDropdownOpen: false,
-      activeItem: 0,
-      splitButtonDropdownIsOpen: false,
-      page: 1,
-      perPage: 10,
-      totalItemCount: 10
-    };
+  const totalItemCount = 10;
 
-    this.checkAllSelected = (selected, total) => {
-      if (selected && selected < total) {
-        return null;
-      }
-      return selected === total;
-    };
+  const [cardData, setCardData] = React.useState(data);
+  const [isChecked, setIsChecked] = React.useState(false);
+  const [selectedItems, setSelectedItems] = React.useState([]);
+  const [areAllSelected, setAreAllSelected] = React.useState(false);
+  const [splitButtonDropdownIsOpen, setSplitButtonDropdownIsOpen] = React.useState(false);
+  const [isLowerToolbarDropdownOpen, setIsLowerToolbarDropdownOpen] = React.useState(false);
+  const [isLowerToolbarKebabDropdownOpen, setIsLowerToolbarKebabDropdownOpen] = React.useState(false);
+  const [page, setPage] = React.useState(1);
+  const [perPage, setPerPage] = React.useState(10);
+  const [filters, setFilters] = React.useState({ products: [] });
+  const [state, setState] = React.useState({});
 
-    this.onToolbarDropdownToggle = () => {
-      this.setState((prevState) => ({
-        isLowerToolbarDropdownOpen: !prevState.isLowerToolbarDropdownOpen
-      }));
-    };
+  const checkAllSelected = (selected: number, total: number) => {
+    if (selected && selected < total) {
+      return null;
+    }
+    return selected === total;
+  };
 
-    this.onToolbarKebabDropdownToggle = () => {
-      this.setState({
-        isOpen: !this.state.isLowerToolbarKebabDropdownOpen
-      });
-    };
+  const onToolbarDropdownToggle = () => {
+    setIsLowerToolbarDropdownOpen(!isLowerToolbarDropdownOpen);
+  };
 
-    this.onToolbarKebabDropdownSelect = (event) => {
-      this.setState({
-        isLowerToolbarKebabDropdownOpen: !this.state.isLowerToolbarKebabDropdownOpen
-      });
-    };
+  const onToolbarKebabDropdownToggle = () => {
+    setIsLowerToolbarKebabDropdownOpen(!isLowerToolbarKebabDropdownOpen);
+  };
 
-    this.onCardKebabDropdownToggle = (key, event) => {
-      event?.stopPropagation();
-      this.setState((prevState) => ({
-        [key]: !prevState[key]
-      }));
-    };
+  const onToolbarKebabDropdownSelect = () => {
+    setIsLowerToolbarKebabDropdownOpen(!isLowerToolbarKebabDropdownOpen);
+  };
 
-    this.onCardKebabDropdownSelect = (key, event) => {
-      this.setState({
-        [key]: !this.state[key]
-      });
-    };
+  const onCardKebabDropdownToggle = (event, key: string) => {
+    event?.stopPropagation();
+    setState({
+      [key]: !state[key]
+    });
+  };
 
-    this.deleteItem = (item) => (event) => {
-      const filter = (getter) => (val) => getter(val) !== item.id;
-      this.setState({
-        cardData: this.state.cardData.filter(filter(({ id }) => id)),
-        selectedItems: this.state.selectedItems.filter(filter((id) => id))
-      });
-    };
+  const deleteItem = (item) => () => {
+    const filter = (getter) => (val) => getter(val) !== item.id;
 
-    this.onSetPage = (_event, pageNumber) => {
-      this.setState({
-        page: pageNumber
-      });
-    };
+    setCardData(cardData.filter(filter(({ id }) => id)));
+    setSelectedItems(selectedItems.filter(filter((id) => id)));
+  };
 
-    this.onPerPageSelect = (_event, perPage) => {
-      this.setState({
-        perPage,
-        page: 1
-      });
-    };
+  const onSetPage = (_event, pageNumber: number) => {
+    setPage(pageNumber);
+  };
 
-    this.onSplitButtonToggle = () => {
-      this.setState((prevState) => ({
-        splitButtonDropdownIsOpen: !prevState.splitButtonDropdownIsOpen
-      }));
-    };
+  const onPerPageSelect = (_event, perPage: number) => {
+    setPerPage(perPage);
+    setPage(1);
+  };
 
-    this.onSplitButtonSelect = () => {
-      this.setState({
-        splitButtonDropdownIsOpen: false
-      });
-    };
+  const onSplitButtonToggle = () => {
+    setSplitButtonDropdownIsOpen(!splitButtonDropdownIsOpen);
+  };
 
-    this.onNameSelect = (event, selection) => {
-      const checked = event.target.checked;
-      this.setState((prevState) => {
-        const prevSelections = prevState.filters['products'];
-        return {
-          filters: {
-            ...prevState.filters,
-            ['products']: checked
-              ? [...prevSelections, selection]
-              : prevSelections.filter((value) => value !== selection)
-          }
-        };
-      });
-    };
+  const onSplitButtonSelect = () => {
+    setSplitButtonDropdownIsOpen(false);
+  };
 
-    this.onDelete = (type = '', id = '') => {
-      if (type) {
-        this.setState((prevState) => {
-          prevState.filters[type.toLowerCase()] = prevState.filters[type.toLowerCase()].filter((s) => s !== id);
-          return {
-            filters: prevState.filters
-          };
-        });
-      } else {
-        this.setState({
-          filters: {
-            products: []
-          }
-        });
-      }
-    };
+  const onNameSelect = (event, selection) => {
+    const checked = event.target.checked;
+    const prevSelections = filters.products;
 
-    this.onKeyDown = (event, productId) => {
-      if (event.target !== event.currentTarget) {
-        return;
-      }
-      if ([' ', 'Enter'].includes(event.key)) {
-        event.preventDefault();
-        this.setState((prevState) => {
-          return prevState.selectedItems.includes(productId * 1)
-            ? {
-                selectedItems: [...prevState.selectedItems.filter((id) => productId * 1 != id)],
-                areAllSelected: this.checkAllSelected(prevState.selectedItems.length - 1, prevState.totalItemCount)
-              }
-            : {
-                selectedItems: [...prevState.selectedItems, productId * 1],
-                areAllSelected: this.checkAllSelected(prevState.selectedItems.length + 1, prevState.totalItemCount)
-              };
-        });
-      }
-    };
+    setFilters({...filters, 'products': checked ? [...prevSelections, selection] : prevSelections.filter((value) => value !== selection)})
+  };
 
-    this.onClick = (productId) => {
-      this.setState((prevState) => {
-        return prevState.selectedItems.includes(productId * 1)
-          ? {
-              selectedItems: [...prevState.selectedItems.filter((id) => productId * 1 != id)],
-              areAllSelected: this.checkAllSelected(prevState.selectedItems.length - 1, prevState.totalItemCount)
-            }
-          : {
-              selectedItems: [...prevState.selectedItems, productId * 1],
-              areAllSelected: this.checkAllSelected(prevState.selectedItems.length + 1, prevState.totalItemCount)
-            };
-      });
-    };
-  }
+  const onDelete = (type = '', _id = '') => {
+    if (type) {
+      setFilters(filters);
 
-  selectedItems(e) {
-    const { value, checked } = e.target;
-    let { selectedItems } = this.state;
-
-    if (checked) {
-      selectedItems = [...selectedItems, value];
     } else {
-      selectedItems = selectedItems.filter((el) => el !== value);
-      if (this.state.areAllSelected) {
-        this.setState({
-          areAllSelected: !this.state.areAllSelected
-        });
+      setFilters({ products: [] });
+    }
+  };
+
+  const onKeyDown = (event, productId: number) => {
+    if (event.target !== event.currentTarget) {
+      return;
+    }
+    if ([' ', 'Enter'].includes(event.key)) {
+      event.preventDefault();
+
+      if (selectedItems.includes(productId * 1)) {
+        setSelectedItems([...selectedItems.filter((id) => productId * 1 !== id)]);
+
+        const checkAll = checkAllSelected(selectedItems.length - 1, totalItemCount);
+        setAreAllSelected(checkAll);
+
+      } else {
+        setSelectedItems([...selectedItems, productId * 1]);
+        const checkAll = checkAllSelected(selectedItems.length + 1, totalItemCount);
+        setAreAllSelected(checkAll);
       }
     }
-    this.setState({ selectedItems });
-  }
+  };
 
-  splitCheckboxSelectAll(e) {
-    const { checked } = e.target;
-    const { isChecked, cardData } = this.state;
-    let collection = [];
+  const onClick = (productId: number) => {
+    if (selectedItems.includes(productId * 1)) {
+      setSelectedItems(selectedItems.filter((id) => productId * 1 !== id));
 
-    if (checked) {
-      for (var i = 0; i <= 9; i++) collection = [...collection, i];
+      const checkAll = checkAllSelected(selectedItems.length - 1, totalItemCount);
+      setAreAllSelected(checkAll);
+    } else {
+      setSelectedItems([...selectedItems, productId * 1]);
+      const checkAll = checkAllSelected(selectedItems.length + 1, totalItemCount);
+      setAreAllSelected(checkAll);
     }
+  };
 
-    this.setState(
-      {
-        selectedItems: collection,
-        isChecked: isChecked,
-        areAllSelected: checked
-      },
-      this.updateSelected
-    );
-  }
+  const updateSelected = () => {
+    const rows = cardData.map((post: { selected: boolean; id: number }) => {
+      post.selected = selectedItems.includes(post.id);
+      return post;
+    });
 
-  selectPage(e) {
-    const { checked } = e.target;
-    const { isChecked, totalItemCount, perPage } = this.state;
-    let collection = [];
+    setCardData(rows);
+  };
 
-    collection = this.getAllItems();
-
-    this.setState(
-      {
-        selectedItems: collection,
-        isChecked: checked,
-        areAllSelected: totalItemCount === perPage ? true : false
-      },
-      this.updateSelected
-    );
-  }
-
-  selectAll(e) {
-    const { checked } = e.target;
-    const { isChecked } = this.state;
-
-    let collection = [];
-    for (var i = 0; i <= 9; i++) collection = [...collection, i];
-
-    this.setState(
-      {
-        selectedItems: collection,
-        isChecked: true,
-        areAllSelected: true
-      },
-      this.updateSelected
-    );
-  }
-
-  selectNone(e) {
-    const { checked } = e.target;
-    const { isChecked, selectedItems } = this.state;
-    this.setState(
-      {
-        selectedItems: [],
-        isChecked: false,
-        areAllSelected: false
-      },
-      this.updateSelected
-    );
-  }
-
-  getAllItems() {
-    const { cardData } = this.state;
+    const getAllItems = () => {
     const collection = [];
     for (const items of cardData) {
       collection.push(items.id);
     }
 
     return collection;
-  }
+  };
 
-  updateSelected() {
-    const { cardData, selectedItems } = this.state;
-    let rows = cardData.map((post) => {
-      post.selected = selectedItems.includes(post.id);
-      return post;
-    });
+  const splitCheckboxSelectAll = (e) => {
+    let collection: number[] = [];
 
-    this.setState({
-      cardData: rows
-    });
-  }
+    if (e.target.checked) {
+      for (let i = 0; i <= 9; i++) {
+        collection = [...collection, i];
+      }
+    }
 
-  renderPagination() {
-    const { page, perPage, totalItemCount, cardData } = this.state;
+    setSelectedItems(collection);
+    setIsChecked(isChecked);
+    setAreAllSelected(e.target.checked);
+
+    updateSelected();
+  };
+
+  const selectPage = (e) => {
+    const { checked } = e.target;
+    let collection = [];
+
+    collection = getAllItems();
+
+    setSelectedItems(collection);
+    setIsChecked(checked);
+    setAreAllSelected(totalItemCount === perPage ? true : false);
+
+    updateSelected();
+  };
+
+  const selectAll = () => {
+
+    let collection: number[] = [];
+    for (let i = 0; i <= 9; i++) {
+      collection = [...collection, i];
+    }
+
+    setSelectedItems(collection);
+    setIsChecked(true);
+    setAreAllSelected(true);
+
+    updateSelected();
+  };
+
+  const selectNone = () => {
+
+    setSelectedItems([]);
+    setIsChecked(false);
+    setAreAllSelected(false);
+
+    updateSelected();
+  };
+
+  const renderPagination = () => {
 
     const defaultPerPageOptions = [
       {
@@ -378,44 +284,40 @@ class CardViewBasic extends React.Component {
         page={page}
         perPage={perPage}
         perPageOptions={defaultPerPageOptions}
-        onSetPage={this.onSetPage}
-        onPerPageSelect={this.onPerPageSelect}
+        onSetPage={onSetPage}
+        onPerPageSelect={onPerPageSelect}
         variant="top"
         isCompact
       />
     );
-  }
+  };
 
-  buildSelectDropdown() {
-    const { splitButtonDropdownIsOpen, selectedItems, areAllSelected, filters, cardData } = this.state;
+  const buildSelectDropdown = () => {
     const numSelected = selectedItems.length;
-    const allSelected = areAllSelected;
     const anySelected = numSelected > 0;
-    const someChecked = anySelected ? null : false;
-    const isChecked = allSelected ? true : someChecked;
     const splitButtonDropdownItems = (
       <>
-        <DropdownItem key="item-1" onClick={this.selectNone.bind(this)}>
+        <DropdownItem key="item-1" onClick={selectNone}>
           Select none (0 items)
         </DropdownItem>
-        <DropdownItem key="item-2" onClick={this.selectPage.bind(this)}>
-          Select page ({this.state.perPage} items)
+        <DropdownItem key="item-2" onClick={selectPage}>
+          Select page ({perPage} items)
         </DropdownItem>
-        <DropdownItem key="item-3" onClick={this.selectAll.bind(this)}>
-          Select all ({this.state.totalItemCount} items)
+        <DropdownItem key="item-3" onClick={selectAll}>
+          Select all ({totalItemCount} items)
         </DropdownItem>
       </>
     );
     return (
       <Dropdown
-        onSelect={this.onSplitButtonSelect}
+        onSelect={onSplitButtonSelect}
         isOpen={splitButtonDropdownIsOpen}
-        onOpenChange={(isOpen) => this.setState({ splitButtonDropdownIsOpen: isOpen })}
+        onOpenChange={(isOpen) => setSplitButtonDropdownIsOpen(isOpen)}
         toggle={(toggleRef) => (
           <MenuToggle
             ref={toggleRef}
             isExpanded={splitButtonDropdownIsOpen}
-            onClick={this.onSplitButtonToggle}
+            onClick={onSplitButtonToggle}
             aria-label="Select cards"
             splitButtonOptions={{
               items: [
@@ -424,7 +326,7 @@ class CardViewBasic extends React.Component {
                   key="split-dropdown-checkbox"
                   aria-label={anySelected ? 'Deselect all cards' : 'Select all cards'}
                   isChecked={areAllSelected}
-                  onClick={this.splitCheckboxSelectAll.bind(this)}
+                  onClick={(e) => splitCheckboxSelectAll(e)}
                 >
                   {numSelected !== 0 && `${numSelected} selected`}
                 </MenuToggleCheckbox>
@@ -436,11 +338,9 @@ class CardViewBasic extends React.Component {
         <DropdownList>{splitButtonDropdownItems}</DropdownList>
       </Dropdown>
     );
-  }
+  };
 
-  buildFilterDropdown() {
-    const { isLowerToolbarDropdownOpen, filters } = this.state;
-
+  const buildFilterDropdown = () => {
     const filterDropdownItems = (
       <SelectList>
         <SelectOption
@@ -497,21 +397,19 @@ class CardViewBasic extends React.Component {
     );
 
     return (
-      <ToolbarFilter categoryName="Products" chips={filters.products} deleteChip={this.onDelete}>
+      <ToolbarFilter categoryName="Products" chips={filters.products} deleteChip={(category, chip) => onDelete(category, chip)}>
         <Select
           aria-label="Products"
           role="menu"
           toggle={(toggleRef) => (
-            <MenuToggle ref={toggleRef} onClick={this.onToolbarDropdownToggle} isExpanded={isLowerToolbarDropdownOpen}>
+            <MenuToggle ref={toggleRef} onClick={onToolbarDropdownToggle} isExpanded={isLowerToolbarDropdownOpen}>
               Filter by creator name
               {filters.products.length > 0 && <Badge isRead>{filters.products.length}</Badge>}
             </MenuToggle>
           )}
-          onSelect={this.onNameSelect}
+          onSelect={onNameSelect}
           onOpenChange={(isOpen) => {
-            this.setState(() => ({
-              isLowerToolbarDropdownOpen: isOpen
-            }));
+            setIsLowerToolbarDropdownOpen(isOpen);
           }}
           selected={filters.products}
           isOpen={isLowerToolbarDropdownOpen}
@@ -520,200 +418,190 @@ class CardViewBasic extends React.Component {
         </Select>
       </ToolbarFilter>
     );
-  }
+  };
 
-  render() {
-    const {
-      isUpperToolbarDropdownOpen,
-      isLowerToolbarDropdownOpen,
-      isUpperToolbarKebabDropdownOpen,
-      isLowerToolbarKebabDropdownOpen,
-      isCardKebabDropdownOpen,
-      splitButtonDropdownIsOpen,
-      activeItem,
-      filters,
-      cardData,
-      checked,
-      selectedItems,
-      areAllSelected,
-      isChecked,
-      page,
-      perPage
-    } = this.state;
+  const toolbarKebabDropdownItems = [
+    <OverflowMenuDropdownItem itemId={0} key="link">
+      Link
+    </OverflowMenuDropdownItem>,
+    <OverflowMenuDropdownItem itemId={1} key="action" component="button">
+      Action
+    </OverflowMenuDropdownItem>,
+    <OverflowMenuDropdownItem itemId={2} key="disabled link" isDisabled>
+      Disabled Link
+    </OverflowMenuDropdownItem>,
+    <OverflowMenuDropdownItem itemId={3} key="disabled action" isDisabled component="button">
+      Disabled Action
+    </OverflowMenuDropdownItem>,
+    <Divider key="separator" />,
+    <OverflowMenuDropdownItem itemId={5} key="separated link">
+      Separated Link
+    </OverflowMenuDropdownItem>,
+    <OverflowMenuDropdownItem itemId={6} key="separated action" component="button">
+      Separated Action
+    </OverflowMenuDropdownItem>
+  ];
 
-    const toolbarKebabDropdownItems = [
-      <OverflowMenuDropdownItem itemId={0} key="link">
-        Link
-      </OverflowMenuDropdownItem>,
-      <OverflowMenuDropdownItem itemId={1} key="action" component="button">
-        Action
-      </OverflowMenuDropdownItem>,
-      <OverflowMenuDropdownItem itemId={2} key="disabled link" isDisabled>
-        Disabled Link
-      </OverflowMenuDropdownItem>,
-      <OverflowMenuDropdownItem itemId={3} key="disabled action" isDisabled component="button">
-        Disabled Action
-      </OverflowMenuDropdownItem>,
-      <Divider key="separator" />,
-      <OverflowMenuDropdownItem itemId={5} key="separated link">
-        Separated Link
-      </OverflowMenuDropdownItem>,
-      <OverflowMenuDropdownItem itemId={6} key="separated action" component="button">
-        Separated Action
-      </OverflowMenuDropdownItem>
-    ];
-
-    const toolbarItems = (
-      <React.Fragment>
-        <ToolbarItem variant="bulk-select">{this.buildSelectDropdown()}</ToolbarItem>
-        <ToolbarItem breakpoint="xl">{this.buildFilterDropdown()}</ToolbarItem>
-        <ToolbarItem variant="overflow-menu">
-          <OverflowMenu breakpoint="md">
-            <OverflowMenuItem>
-              <Button variant="primary">Create a project</Button>
-            </OverflowMenuItem>
-            <OverflowMenuControl hasAdditionalOptions>
-              <Dropdown
-                onSelect={this.onToolbarKebabDropdownSelect}
-                toggle={(toggleRef) => (
-                  <MenuToggle
-                    ref={toggleRef}
-                    aria-label="Toolbar kebab overflow menu"
-                    variant="plain"
-                    onClick={this.onToolbarKebabDropdownToggle}
-                    isExpanded={isLowerToolbarKebabDropdownOpen}
-                  >
-                    <EllipsisVIcon />
-                  </MenuToggle>
-                )}
-                isOpen={isLowerToolbarKebabDropdownOpen}
-                onOpenChange={(isOpen) => this.setState({ isLowerToolbarKebabDropdownOpen: isOpen })}
-              >
-                <DropdownList>{toolbarKebabDropdownItems}</DropdownList>
-              </Dropdown>
-            </OverflowMenuControl>
-          </OverflowMenu>
-        </ToolbarItem>
-        <ToolbarItem variant="pagination" align={{ default: 'alignRight' }}>
-          {this.renderPagination()}
-        </ToolbarItem>
-      </React.Fragment>
-    );
-
-    const icons = {
-      pfIcon,
-      activeMQIcon,
-      sparkIcon,
-      avroIcon,
-      azureIcon,
-      saxonIcon,
-      dropBoxIcon,
-      infinispanIcon,
-      restIcon,
-      swaggerIcon
-    };
-
-    const filtered =
-      filters.products.length > 0
-        ? data.filter((card) => {
-            return filters.products.length === 0 || filters.products.includes(card.name);
-          })
-        : cardData.slice((page - 1) * perPage, perPage === 1 ? page * perPage : page * perPage - 1);
-
-    return (
-      <React.Fragment>
-        <DashboardWrapper mainContainerId="main-content-card-view-default-nav" breadcrumb={null}>
-          <PageSection variant={PageSectionVariants.light}>
-            <TextContent>
-              <Text component="h1">Projects</Text>
-              <Text component="p">This is a demo that showcases PatternFly cards.</Text>
-            </TextContent>
-            <Toolbar id="toolbar-group-types" clearAllFilters={this.onDelete}>
-              <ToolbarContent>{toolbarItems}</ToolbarContent>
-            </Toolbar>
-          </PageSection>
-          <PageSection isFilled>
-            <Gallery hasGutter aria-label="Selectable card container">
-              <Card isCompact>
-                <Bullseye>
-                  <EmptyState variant={EmptyStateVariant.xs}>
-                    <EmptyStateHeader
-                      headingLevel="h2"
-                      titleText="Add a new card to your page"
-                      icon={<EmptyStateIcon icon={PlusCircleIcon} />}
-                    />
-                    <EmptyStateFooter>
-                      <EmptyStateActions>
-                        <Button variant="link">Add card</Button>
-                      </EmptyStateActions>
-                    </EmptyStateFooter>
-                  </EmptyState>
-                </Bullseye>
-              </Card>
-              {filtered.map((product, key) => (
-                <Card
-                  isCompact
-                  isClickable
-                  isSelectable
-                  isSelected={selectedItems.includes(product.id)}
-                  key={product.name}
-                  id={product.name.replace(/ /g, '-')}
-                  onKeyDown={(e) => this.onKeyDown(e, product.id)}
-                  onClick={() => this.onClick(product.id)}
+  const toolbarItems = (
+    <React.Fragment>
+      <ToolbarItem variant="bulk-select">{buildSelectDropdown()}</ToolbarItem>
+      <ToolbarItem>{buildFilterDropdown()}</ToolbarItem>
+      <ToolbarItem variant="overflow-menu">
+        <OverflowMenu breakpoint="md">
+          <OverflowMenuItem>
+            <Button variant="primary">Create a project</Button>
+          </OverflowMenuItem>
+          <OverflowMenuControl hasAdditionalOptions>
+            <Dropdown
+              onSelect={onToolbarKebabDropdownSelect}
+              toggle={(toggleRef) => (
+                <MenuToggle
+                  ref={toggleRef}
+                  aria-label="Toolbar kebab overflow menu"
+                  variant="plain"
+                  onClick={onToolbarKebabDropdownToggle}
+                  isExpanded={isLowerToolbarKebabDropdownOpen}
                 >
-                  <CardHeader selectableActions={{ isChecked: selectedItems.includes(product.id), selectableActionId: `selectable-actions-item-${product.id}`, name: `check-${product.id}` }}
-                    actions={{
-                      actions: (
-                        <>
-                          <Dropdown
-                            isOpen={this.state[key] ?? false}
-                            onOpenChange={(isOpen) => this.setState({ [key]: isOpen })}
-                            toggle={(toggleRef: React.Ref<MenuToggleElement>) => (
-                              <MenuToggle
-                                ref={toggleRef}
-                                aria-label={`${product.name} actions`}
-                                variant="plain"
-                                onClick={(e) => {this.onCardKebabDropdownToggle(key, e)}}
-                                isExpanded={this.state[key]}
-                              >
-                                <EllipsisVIcon />
-                              </MenuToggle>
-                            )}
-                            popperProps={{ position: 'right' }}
-                          >
-                            <DropdownList>
-                              <DropdownItem key="trash" onClick={this.deleteItem(product)}>
-                                <TrashIcon />
-                                Delete
-                              </DropdownItem>
-                            </DropdownList>
-                          </Dropdown> 
-                        </>
-                      )
-                    }}
-                  >
-                    <img src={icons[product.icon]} alt={`${product.name} icon`} style={{ maxWidth: '60px' }} />
-                  </CardHeader>
-                  <CardTitle>{product.name}</CardTitle>
-                  <CardBody>{product.description}</CardBody>
-                </Card>
-              ))}
-            </Gallery>
-          </PageSection>
-          <PageSection isFilled={false} sticky="bottom" padding={{ default: 'noPadding' }} variant="light">
-            <Pagination
-              itemCount={this.state.totalItemCount}
-              page={page}
-              page={this.state.page}
-              perPage={this.state.perPage}
-              onPerPageSelect={this.onPerPageSelect}
-              onSetPage={this.onSetPage}
-              variant="bottom"
-            />
-          </PageSection>
-        </DashboardWrapper>
-      </React.Fragment>
-    );
-  }
-}
+                  <EllipsisVIcon />
+                </MenuToggle>
+              )}
+              isOpen={isLowerToolbarKebabDropdownOpen}
+              onOpenChange={(isOpen) => setIsLowerToolbarDropdownOpen(isOpen)}
+            >
+              <DropdownList>{toolbarKebabDropdownItems}</DropdownList>
+            </Dropdown>
+          </OverflowMenuControl>
+        </OverflowMenu>
+      </ToolbarItem>
+      <ToolbarItem variant="pagination" align={{ default: 'alignRight' }}>
+        {renderPagination()}
+      </ToolbarItem>
+    </React.Fragment>
+  );
+
+  const icons = {
+    pfIcon,
+    activeMQIcon,
+    sparkIcon,
+    avroIcon,
+    azureIcon,
+    saxonIcon,
+    dropBoxIcon,
+    infinispanIcon,
+    restIcon,
+    swaggerIcon
+  };
+
+  const filtered =
+    filters.products.length > 0
+      ? data.filter((card: { name: string; }) => filters.products.length === 0 || filters.products.includes(card.name))
+      : cardData.slice((page - 1) * perPage, perPage === 1 ? page * perPage : page * perPage - 1);
+
+  return (
+    <React.Fragment>
+      <DashboardWrapper mainContainerId="main-content-card-view-default-nav" breadcrumb={null}>
+        <PageSection variant={PageSectionVariants.light}>
+          <TextContent>
+            <Text component="h1">Projects</Text>
+            <Text component="p">This is a demo that showcases PatternFly cards.</Text>
+          </TextContent>
+          <Toolbar id="toolbar-group-types" clearAllFilters={onDelete}>
+            <ToolbarContent>{toolbarItems}</ToolbarContent>
+          </Toolbar>
+        </PageSection>
+        <PageSection isFilled>
+          <Gallery hasGutter aria-label="Selectable card container">
+            <Card isCompact>
+              <Bullseye>
+                <EmptyState variant={EmptyStateVariant.xs}>
+                  <EmptyStateHeader
+                    headingLevel="h2"
+                    titleText="Add a new card to your page"
+                    icon={<EmptyStateIcon icon={PlusCircleIcon} />}
+                  />
+                  <EmptyStateFooter>
+                    <EmptyStateActions>
+                      <Button variant="link">Add card</Button>
+                    </EmptyStateActions>
+                  </EmptyStateFooter>
+                </EmptyState>
+              </Bullseye>
+            </Card>
+            {filtered.map((product, key: string) => (
+              <Card
+                isCompact
+                isClickable
+                isSelectable
+                isSelected={selectedItems.includes(product.id)}
+                key={product.name}
+                id={product.name.replace(/ /g, '-')}
+                onKeyDown={(e) => onKeyDown(e, product.id)}
+                onClick={() => onClick(product.id)}
+              >
+                <CardHeader
+                  selectableActions={{
+                    isChecked: selectedItems.includes(product.id),
+                    selectableActionId: `selectable-actions-item-${product.id}`,
+                    name: `check-${product.id}`
+                  }}
+                  actions={{
+                    actions: (
+                      <>
+                        <Dropdown
+                          isOpen={state[key] ?? false}
+                          onOpenChange={(isOpen) => setState({ [key]: isOpen })}
+                          toggle={(toggleRef: React.Ref<MenuToggleElement>) => (
+                            <MenuToggle
+                              ref={toggleRef}
+                              aria-label={`${product.name} actions`}
+                              variant="plain"
+                              onClick={(e) => {
+                                onCardKebabDropdownToggle(e, key);
+                              }}
+                              isExpanded={state[key]}
+                            >
+                              <EllipsisVIcon />
+                            </MenuToggle>
+                          )}
+                          popperProps={{ position: 'right' }}
+                        >
+                          <DropdownList>
+                            <DropdownItem key="trash" onClick={deleteItem(product)}>
+                              <TrashIcon />
+                              Delete
+                            </DropdownItem>
+                          </DropdownList>
+                        </Dropdown>
+                      </>
+                    )
+                  }}
+                >
+                  <img src={icons[product.icon]} alt={`${product.name} icon`} style={{ maxWidth: '60px' }} />
+                </CardHeader>
+                <CardTitle>{product.name}</CardTitle>
+                <CardBody>{product.description}</CardBody>
+              </Card>
+            ))}
+          </Gallery>
+        </PageSection>
+        <PageSection
+          isFilled={false}
+          stickyOnBreakpoint={{ default: 'bottom' }}
+          padding={{ default: 'noPadding' }}
+          variant="light"
+        >
+          <Pagination
+            itemCount={totalItemCount}
+            page={page}
+            perPage={perPage}
+            onPerPageSelect={onPerPageSelect}
+            onSetPage={onSetPage}
+            variant="bottom"
+          />
+        </PageSection>
+      </DashboardWrapper>
+    </React.Fragment>
+  );
+};
+
 ```
