@@ -76,7 +76,6 @@ import TrashIcon from '@patternfly/react-icons/dist/esm/icons/trash-icon';
 import EllipsisVIcon from '@patternfly/react-icons/dist/esm/icons/ellipsis-v-icon';
 
 export const CardViewBasic: React.FunctionComponent = () => {
-
   const totalItemCount = 10;
 
   const [cardData, setCardData] = React.useState(data);
@@ -90,7 +89,14 @@ export const CardViewBasic: React.FunctionComponent = () => {
   const [perPage, setPerPage] = React.useState(10);
   const [filters, setFilters] = React.useState({ products: [] });
   const [state, setState] = React.useState({});
+  const [deletion, setDeletion] = React.useState(false);
 
+  interface ProductType {
+    id: number;
+    name: string;
+    icon: string;
+    description: string;
+  }
   const checkAllSelected = (selected: number, total: number) => {
     if (selected && selected < total) {
       return null;
@@ -110,25 +116,29 @@ export const CardViewBasic: React.FunctionComponent = () => {
     setIsLowerToolbarKebabDropdownOpen(!isLowerToolbarKebabDropdownOpen);
   };
 
-  const onCardKebabDropdownToggle = (event, key: string) => {
+  const onCardKebabDropdownToggle = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent> | React.MouseEvent<HTMLDivElement, MouseEvent>,
+    key: string
+  ) => {
     event?.stopPropagation();
     setState({
-      [key]: !state[key]
+      [key]: !state[key as keyof Object]
     });
   };
 
-  const deleteItem = (item) => () => {
-    const filter = (getter) => (val) => getter(val) !== item.id;
+  const deleteItem = (e, item: ProductType) => {
+    const filter = (getter: any) => (val: string) => getter(val) !== item.id;
 
-    setCardData(cardData.filter(filter(({ id }) => id)));
-    setSelectedItems(selectedItems.filter(filter((id) => id)));
+    setCardData(cardData.filter(filter(({ id }: ProductType) => id)));
+
+    setSelectedItems(selectedItems.filter(filter((id: string) => id)));
   };
 
-  const onSetPage = (_event, pageNumber: number) => {
+  const onSetPage = (_event: any, pageNumber: number) => {
     setPage(pageNumber);
   };
 
-  const onPerPageSelect = (_event, perPage: number) => {
+  const onPerPageSelect = (_event: any, perPage: number) => {
     setPerPage(perPage);
     setPage(1);
   };
@@ -141,23 +151,25 @@ export const CardViewBasic: React.FunctionComponent = () => {
     setSplitButtonDropdownIsOpen(false);
   };
 
-  const onNameSelect = (event, selection) => {
+  const onNameSelect = (event: any, selection: string | number) => {
     const checked = event.target.checked;
     const prevSelections = filters.products;
 
-    setFilters({...filters, 'products': checked ? [...prevSelections, selection] : prevSelections.filter((value) => value !== selection)})
+    setFilters({
+      ...filters,
+      products: checked ? [...prevSelections, selection] : prevSelections.filter((value) => value !== selection)
+    });
   };
 
   const onDelete = (type = '', _id = '') => {
     if (type) {
       setFilters(filters);
-
     } else {
       setFilters({ products: [] });
     }
   };
 
-  const onKeyDown = (event, productId: number) => {
+  const onKeyDown = (event: React.KeyboardEvent<HTMLElement>, productId: number) => {
     if (event.target !== event.currentTarget) {
       return;
     }
@@ -169,7 +181,6 @@ export const CardViewBasic: React.FunctionComponent = () => {
 
         const checkAll = checkAllSelected(selectedItems.length - 1, totalItemCount);
         setAreAllSelected(checkAll);
-
       } else {
         setSelectedItems([...selectedItems, productId * 1]);
         const checkAll = checkAllSelected(selectedItems.length + 1, totalItemCount);
@@ -184,6 +195,8 @@ export const CardViewBasic: React.FunctionComponent = () => {
 
       const checkAll = checkAllSelected(selectedItems.length - 1, totalItemCount);
       setAreAllSelected(checkAll);
+    } else if (deletion) {
+      setDeletion(false);
     } else {
       setSelectedItems([...selectedItems, productId * 1]);
       const checkAll = checkAllSelected(selectedItems.length + 1, totalItemCount);
@@ -200,7 +213,7 @@ export const CardViewBasic: React.FunctionComponent = () => {
     setCardData(rows);
   };
 
-    const getAllItems = () => {
+  const getAllItems = () => {
     const collection = [];
     for (const items of cardData) {
       collection.push(items.id);
@@ -209,7 +222,7 @@ export const CardViewBasic: React.FunctionComponent = () => {
     return collection;
   };
 
-  const splitCheckboxSelectAll = (e) => {
+  const splitCheckboxSelectAll = (e: any) => {
     let collection: number[] = [];
 
     if (e.target.checked) {
@@ -225,7 +238,7 @@ export const CardViewBasic: React.FunctionComponent = () => {
     updateSelected();
   };
 
-  const selectPage = (e) => {
+  const selectPage = (e: { target: { checked: any } }) => {
     const { checked } = e.target;
     let collection = [];
 
@@ -239,7 +252,6 @@ export const CardViewBasic: React.FunctionComponent = () => {
   };
 
   const selectAll = () => {
-
     let collection: number[] = [];
     for (let i = 0; i <= 9; i++) {
       collection = [...collection, i];
@@ -253,7 +265,6 @@ export const CardViewBasic: React.FunctionComponent = () => {
   };
 
   const selectNone = () => {
-
     setSelectedItems([]);
     setIsChecked(false);
     setAreAllSelected(false);
@@ -262,7 +273,6 @@ export const CardViewBasic: React.FunctionComponent = () => {
   };
 
   const renderPagination = () => {
-
     const defaultPerPageOptions = [
       {
         title: '1',
@@ -397,7 +407,7 @@ export const CardViewBasic: React.FunctionComponent = () => {
     );
 
     return (
-      <ToolbarFilter categoryName="Products" chips={filters.products} deleteChip={(category, chip) => onDelete(category, chip)}>
+      <ToolbarFilter categoryName="Products" chips={filters.products} deleteChip={(type, id) => onDelete(type, id)}>
         <Select
           aria-label="Products"
           role="menu"
@@ -407,7 +417,7 @@ export const CardViewBasic: React.FunctionComponent = () => {
               {filters.products.length > 0 && <Badge isRead>{filters.products.length}</Badge>}
             </MenuToggle>
           )}
-          onSelect={onNameSelect}
+          onSelect={(event, selection) => onNameSelect(event, selection)}
           onOpenChange={(isOpen) => {
             setIsLowerToolbarDropdownOpen(isOpen);
           }}
@@ -479,7 +489,7 @@ export const CardViewBasic: React.FunctionComponent = () => {
     </React.Fragment>
   );
 
-  const icons = {
+  const icons: { [key: string]: string } = {
     pfIcon,
     activeMQIcon,
     sparkIcon,
@@ -494,7 +504,7 @@ export const CardViewBasic: React.FunctionComponent = () => {
 
   const filtered =
     filters.products.length > 0
-      ? data.filter((card: { name: string; }) => filters.products.length === 0 || filters.products.includes(card.name))
+      ? data.filter((card: { name: string }) => filters.products.length === 0 || filters.products.includes(card.name))
       : cardData.slice((page - 1) * perPage, perPage === 1 ? page * perPage : page * perPage - 1);
 
   return (
@@ -527,7 +537,7 @@ export const CardViewBasic: React.FunctionComponent = () => {
                 </EmptyState>
               </Bullseye>
             </Card>
-            {filtered.map((product, key: string) => (
+            {filtered.map((product: ProductType, key: string) => (
               <Card
                 isCompact
                 isClickable
@@ -536,7 +546,9 @@ export const CardViewBasic: React.FunctionComponent = () => {
                 key={product.name}
                 id={product.name.replace(/ /g, '-')}
                 onKeyDown={(e) => onKeyDown(e, product.id)}
-                onClick={() => onClick(product.id)}
+                onClick={() => {
+                  onClick(product.id);
+                }}
               >
                 <CardHeader
                   selectableActions={{
@@ -548,17 +560,18 @@ export const CardViewBasic: React.FunctionComponent = () => {
                     actions: (
                       <>
                         <Dropdown
-                          isOpen={state[key] ?? false}
+                          isOpen={!!state[key as keyof Object] ?? false}
                           onOpenChange={(isOpen) => setState({ [key]: isOpen })}
                           toggle={(toggleRef: React.Ref<MenuToggleElement>) => (
                             <MenuToggle
                               ref={toggleRef}
                               aria-label={`${product.name} actions`}
                               variant="plain"
-                              onClick={(e) => {
+                              onClick={(e, value) => {
                                 onCardKebabDropdownToggle(e, key);
+                                setDeletion(!value);
                               }}
-                              isExpanded={state[key]}
+                              isExpanded={!!state[key as keyof Object]}
                             >
                               <EllipsisVIcon />
                             </MenuToggle>
@@ -566,7 +579,12 @@ export const CardViewBasic: React.FunctionComponent = () => {
                           popperProps={{ position: 'right' }}
                         >
                           <DropdownList>
-                            <DropdownItem key="trash" onClick={deleteItem(product)}>
+                            <DropdownItem
+                              key="trash"
+                              onClick={(e) => {
+                                deleteItem(e, product);
+                              }}
+                            >
                               <TrashIcon />
                               Delete
                             </DropdownItem>
