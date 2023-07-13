@@ -554,6 +554,7 @@ export const CardViewBasic: React.FunctionComponent = () => {
                   selectableActions={{
                     isChecked: selectedItems.includes(product.id),
                     selectableActionId: `selectable-actions-item-${product.id}`,
+                    selectableActionAriaLabelledby: product.name.replace(/ /g, '-'),
                     name: `check-${product.id}`
                   }}
                   actions={{
