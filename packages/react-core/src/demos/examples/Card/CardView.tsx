@@ -68,7 +68,6 @@ export const CardViewBasic: React.FunctionComponent = () => {
   const [perPage, setPerPage] = React.useState(10);
   const [filters, setFilters] = React.useState<Record<string, string[]>>({ products: [] });
   const [state, setState] = React.useState({});
-  const [deletion, setDeletion] = React.useState(false);
 
   interface ProductType {
     id: number;
@@ -148,34 +147,15 @@ export const CardViewBasic: React.FunctionComponent = () => {
     }
   };
 
-  const onKeyDown = (event: React.KeyboardEvent<HTMLElement>, productId: number) => {
-    if (event.target !== event.currentTarget) {
-      return;
-    }
-    if ([' ', 'Enter'].includes(event.key)) {
-      event.preventDefault();
+  const onChange = (event: React.FormEvent<HTMLInputElement>) => {
+    const name = event.currentTarget.name;
+    const productId = Number(name.charAt(name.length - 1));
 
-      if (selectedItems.includes(productId * 1)) {
-        setSelectedItems([...selectedItems.filter((id) => productId * 1 !== id)]);
-
-        const checkAll = checkAllSelected(selectedItems.length - 1, totalItemCount);
-        setAreAllSelected(!!checkAll);
-      } else {
-        setSelectedItems([...selectedItems, productId * 1]);
-        const checkAll = checkAllSelected(selectedItems.length + 1, totalItemCount);
-        setAreAllSelected(!!checkAll);
-      }
-    }
-  };
-
-  const onClick = (productId: number) => {
     if (selectedItems.includes(productId * 1)) {
       setSelectedItems(selectedItems.filter((id) => productId * 1 !== id));
 
       const checkAll = checkAllSelected(selectedItems.length - 1, totalItemCount);
       setAreAllSelected(!!checkAll);
-    } else if (deletion) {
-      setDeletion(false);
     } else {
       setSelectedItems([...selectedItems, productId * 1]);
       const checkAll = checkAllSelected(selectedItems.length + 1, totalItemCount);
@@ -528,17 +508,14 @@ export const CardViewBasic: React.FunctionComponent = () => {
                 isSelected={selectedItems.includes(product.id)}
                 key={product.name}
                 id={product.name.replace(/ /g, '-')}
-                onKeyDown={(e) => onKeyDown(e, product.id)}
-                onClick={() => {
-                  onClick(product.id);
-                }}
               >
                 <CardHeader
                   selectableActions={{
                     isChecked: selectedItems.includes(product.id),
                     selectableActionId: `selectable-actions-item-${product.id}`,
                     selectableActionAriaLabelledby: product.name.replace(/ /g, '-'),
-                    name: `check-${product.id}`
+                    name: `check-${product.id}`,
+                    onChange
                   }}
                   actions={{
                     actions: (
@@ -551,9 +528,8 @@ export const CardViewBasic: React.FunctionComponent = () => {
                               ref={toggleRef}
                               aria-label={`${product.name} actions`}
                               variant="plain"
-                              onClick={(e, value) => {
+                              onClick={(e) => {
                                 onCardKebabDropdownToggle(e, key.toString());
-                                setDeletion(!value);
                               }}
                               isExpanded={!!state[key]}
                             >

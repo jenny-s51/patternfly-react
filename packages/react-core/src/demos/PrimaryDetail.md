@@ -569,7 +569,13 @@ class PrimaryDetailCardView extends React.Component {
                   </>
                 )
               }}
-              selectableActions={{ isChecked: selectedItems.includes(product.id), selectableActionId: `selectable-actions-item-${product.id}`, name: `check-${product.id}`, onChange: this.state.onCardClick }}
+              selectableActions={{
+                isChecked: selectedItems.includes(product.id),
+                selectableActionAriaLabelledby: `${'card-view-' + key}`,
+                selectableActionId: `selectable-actions-item-${product.id}`,
+                name: `check-${product.id}`,
+                onChange: this.state.onCardClick
+              }}
             >
               <img src={icons[product.icon]} alt={`${product.name} icon`} style={{ height: '50px' }} />
             </CardHeader>
