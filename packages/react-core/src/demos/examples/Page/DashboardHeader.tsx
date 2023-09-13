@@ -31,7 +31,7 @@ import imgAvatar from '@patternfly/react-core/src/components/assets/avatarImg.sv
 import pfLogo from '@patternfly/react-core/src/demos/assets/pf-logo.svg';
 
 interface DashboardHeaderProps {
-  notificationBadge: React.ReactNode | null;
+  notificationBadge?: React.ReactNode;
 }
 
 const DashboardHeader: React.FC<DashboardHeaderProps> = ({ notificationBadge }) => {
