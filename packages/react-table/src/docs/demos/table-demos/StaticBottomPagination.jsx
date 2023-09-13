@@ -3,6 +3,7 @@ import React from 'react';
 import {
   Button,
   Card,
+  DashboardWrapper,
   Toolbar,
   ToolbarContent,
   ToolbarGroup,
@@ -17,8 +18,6 @@ import {
 } from '@patternfly/react-core';
 import { Table, Thead, Tr, Th, Tbody, Td } from '@patternfly/react-table';
 import FilterIcon from '@patternfly/react-icons/dist/esm/icons/filter-icon';
-import DashboardWrapper from '@patternfly/react-core/src/demos/examples/DashboardWrapper';
-
 import { rows, columns } from './sampleData';
 
 export const StaticBottomPagination = () => {

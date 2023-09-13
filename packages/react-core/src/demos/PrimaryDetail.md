@@ -24,7 +24,6 @@ import azureIcon from './assets/FuseConnector_Icons_AzureServices.png';
 import restIcon from './assets/FuseConnector_Icons_REST.png';
 import EllipsisVIcon from '@patternfly/react-icons/dist/esm/icons/ellipsis-v-icon';
 import { data } from '@patternfly/react-core/src/demos/Card/examples/CardData.jsx';
-import DashboardWrapper from './examples/DashboardWrapper';
 
 ## Demos
 
@@ -50,6 +49,7 @@ import {
   CardHeader,
   CardBody,
   CardTitle,
+  DashboardWrapper,
   Divider,
   Drawer,
   DrawerActions,
@@ -78,7 +78,6 @@ import {
   ToolbarItem,
   ToolbarContent
 } from '@patternfly/react-core';
-import DashboardWrapper from '@patternfly/react-core/src/demos/examples/DashboardWrapper';
 import TrashIcon from '@patternfly/react-icons/dist/esm/icons/trash-icon';
 import pfIcon from './assets/pf-logo-small.svg';
 import activeMQIcon from './assets/activemq-core_200x150.png';
@@ -641,6 +640,7 @@ import React from 'react';
 import {
   Card,
   CardBody,
+  DashboardWrapper,
   Divider,
   Drawer,
   DrawerActions,
@@ -663,7 +663,6 @@ import {
   TextInput,
   Title
 } from '@patternfly/react-core';
-import DashboardWrapper from '@patternfly/react-core/src/demos/examples/DashboardWrapper';
 
 class PrimaryDetailSimpleListInCard extends React.Component {
   constructor(props) {
@@ -803,6 +802,7 @@ import {
   Toolbar,
   ToolbarContent,
   ToolbarItem,
+  DashboardWrapper,
   Divider,
   Drawer,
   DrawerActions,
@@ -825,7 +825,6 @@ import {
   TextContent,
   Title
 } from '@patternfly/react-core';
-import DashboardWrapper from '@patternfly/react-core/src/demos/examples/DashboardWrapper';
 
 class PrimaryDetailDataListInCard extends React.Component {
   constructor(props) {
