@@ -3,7 +3,7 @@ id: Back to top
 section: components
 ---
 
-import { DashboardWrapper } from '../DashboardComponents/DashboardWrapper';
+import { DashboardWrapper } from './examples/DashboardComponents/DashboardWrapper';
 
 ## Demos
 

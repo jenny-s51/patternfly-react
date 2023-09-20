@@ -3,7 +3,7 @@ id: Banner
 section: components
 ---
 
-import { DashboardWrapper } from '../DashboardComponents/DashboardWrapper';
+import { DashboardWrapper } from './examples/DashboardComponents/DashboardWrapper';
 
 ## Demos
 

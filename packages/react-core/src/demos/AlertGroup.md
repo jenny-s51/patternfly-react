@@ -6,8 +6,8 @@ section: components
 import { useEffect } from 'react';
 import SearchIcon from '@patternfly/react-icons/dist/js/icons/search-icon';
 import EllipsisVIcon from '@patternfly/react-icons/dist/esm/icons/ellipsis-v-icon';
-import { DashboardHeader } from '../DashboardComponents/DashboardHeader';
-import { DashboardWrapper } from '../DashboardComponents/DashboardWrapper';
+import { DashboardHeader } from './examples/DashboardComponents/DashboardHeader';
+import { DashboardWrapper } from './examples/DashboardComponents/DashboardWrapper';
 
 ## Demos
 

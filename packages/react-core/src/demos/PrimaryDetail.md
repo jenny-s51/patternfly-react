@@ -24,7 +24,7 @@ import azureIcon from './assets/FuseConnector_Icons_AzureServices.png';
 import restIcon from './assets/FuseConnector_Icons_REST.png';
 import EllipsisVIcon from '@patternfly/react-icons/dist/esm/icons/ellipsis-v-icon';
 import { data } from '@patternfly/react-core/src/demos/Card/examples/CardData.jsx';
-import { DashboardWrapper } from '../DashboardComponents/DashboardWrapper';
+import { DashboardWrapper } from './examples/DashboardComponents/DashboardWrapper';
 
 ## Demos
 
@@ -78,7 +78,7 @@ import {
   ToolbarItem,
   ToolbarContent
 } from '@patternfly/react-core';
-import { DashboardWrapper } from '../DashboardComponents/DashboardWrapper';
+import { DashboardWrapper } from './examples/DashboardComponents/DashboardWrapper';
 import TrashIcon from '@patternfly/react-icons/dist/esm/icons/trash-icon';
 import pfIcon from './assets/pf-logo-small.svg';
 import activeMQIcon from './assets/activemq-core_200x150.png';
@@ -663,7 +663,7 @@ import {
   TextInput,
   Title
 } from '@patternfly/react-core';
-import { DashboardWrapper } from '../DashboardComponents/DashboardWrapper';
+import { DashboardWrapper } from './examples/DashboardComponents/DashboardWrapper';
 
 class PrimaryDetailSimpleListInCard extends React.Component {
   constructor(props) {
