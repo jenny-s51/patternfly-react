@@ -34,7 +34,7 @@ interface DashboardHeaderProps {
   notificationBadge?: React.ReactNode;
 }
 
-const DashboardHeader: React.FC<DashboardHeaderProps> = ({ notificationBadge }) => {
+export const DashboardHeader: React.FC<DashboardHeaderProps> = ({ notificationBadge }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isKebabDropdownOpen, setIsKebabDropdownOpen] = useState(false);
   const [isFullKebabDropdownOpen, setIsFullKebabDropdownOpen] = useState(false);
@@ -196,5 +196,6 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({ notificationBadge }) 
     </Masthead>
   );
 };
+DashboardHeader.displayName = 'DashboardHeader';
 
 export default DashboardHeader;

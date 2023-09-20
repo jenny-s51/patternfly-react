@@ -3,7 +3,7 @@ id: Tabs
 section: components
 ---
 
-import DashboardWrapper from '@patternfly/react-core/src/demos/examples/DashboardWrapper';
+import { DashboardWrapper } from '../DashboardComponents/DashboardWrapper';
 import CheckCircleIcon from '@patternfly/react-icons/dist/js/icons/check-circle-icon';
 import InfoCircleIcon from '@patternfly/react-icons/dist/js/icons/info-circle-icon';
 import CodeIcon from '@patternfly/react-icons/dist/esm/icons/code-icon';

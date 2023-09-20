@@ -13,7 +13,7 @@ import {
   Text,
   TextContent
 } from '@patternfly/react-core';
-import DashboardHeader from '@patternfly/react-core/src/demos/examples/Page/DashboardHeader';
+import DashboardHeader from './DashboardHeader';
 
 interface DashboardWrapperProps {
   children: React.ReactNode;
@@ -29,7 +29,7 @@ interface DashboardWrapperProps {
   hasPageTemplateTitle?: boolean;
 }
 
-const DashboardBreadcrumb = (
+export const DashboardBreadcrumb = (
   <Breadcrumb>
     <BreadcrumbItem>Section home</BreadcrumbItem>
     <BreadcrumbItem to="#">Section title</BreadcrumbItem>
@@ -49,7 +49,7 @@ const PageTemplateTitle = (
   </PageSection>
 );
 
-const DashboardWrapper: React.FC<DashboardWrapperProps> = ({
+export const DashboardWrapper: React.FC<DashboardWrapperProps> = ({
   children,
   mainContainerId,
   breadcrumb,
@@ -129,5 +129,6 @@ const DashboardWrapper: React.FC<DashboardWrapperProps> = ({
     </Page>
   );
 };
+DashboardWrapper.displayName = 'DashboardWrapper';
 
 export default DashboardWrapper;

@@ -2,9 +2,8 @@
 id: Navigation
 section: components
 ---
-
-import { DashboardBreadcrumb } from '@patternfly/react-core/src/demos/examples/DashboardWrapper';
-import DashboardHeader from '@patternfly/react-core/src/demos/examples/DashboardHeader';
+import { DashboardHeader } from '../DashboardComponents/DashboardHeader';
+import { DashboardBreadcrumb } from '../DashboardComponents/DashboardWrapper';
 import CogIcon from '@patternfly/react-icons/dist/esm/icons/cog-icon';
 import HelpIcon from '@patternfly/react-icons/dist/esm/icons/help-icon';
 import QuestionCircleIcon from '@patternfly/react-icons/dist/esm/icons/question-circle-icon';

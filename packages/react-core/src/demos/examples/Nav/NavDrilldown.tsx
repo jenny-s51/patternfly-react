@@ -13,7 +13,7 @@ import {
   PageSection
 } from '@patternfly/react-core';
 
-import DashboardHeader from '@patternfly/react-core/src/demos/examples/DashboardHeader';
+import { DashboardHeader } from '../DashboardComponents/DashboardHeader';
 
 interface MenuHeights {
   [menuId: string]: number;

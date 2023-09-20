@@ -3,7 +3,7 @@ id: Jump links
 section: components
 ---
 
-import DashboardWrapper from '@patternfly/react-core/src/demos/examples/DashboardWrapper';
+import { DashboardWrapper } from '../DashboardComponents/DashboardWrapper';
 
 ## Demos
 
